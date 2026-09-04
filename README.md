@@ -1,6 +1,8 @@
 # Homework 1: Estatística Descritiva
 [texto introdutório né]
 
+oi danny :)
+
 ---
 
 ## Conjunto de Dados Analisados pelo Grupo
