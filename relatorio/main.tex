@@ -1,0 +1,116 @@
+\documentclass[12pt, a4paper]{article}
+% ===================== PACOTES =====================
+\usepackage[brazil]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{a4paper, left=3cm, right=2cm, top=3cm, bottom=2.5cm}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage[expansion=false]{microtype}
+\usepackage{fancyhdr}
+\usepackage{etoolbox}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{courier}
+
+% ===================== ESTILO DOS BLOCOS DE CÓDIGO =====================
+\definecolor{codebg}{RGB}{245,245,250}
+\definecolor{darkgreen}{RGB}{0,100,0}
+\definecolor{darkblue}{RGB}{0,0,160}
+
+\lstset{
+    language=R,
+    basicstyle=\footnotesize\ttfamily,
+    keywordstyle=\color{darkblue}\bfseries,
+    commentstyle=\color{darkgreen}\itshape,
+    stringstyle=\color{red},
+    numberstyle=\scriptsize\color{gray},
+    backgroundcolor=\color{codebg},
+    numbers=none,
+    breaklines=true,
+    frame=single,
+    rulecolor=\color{black!20},
+    xleftmargin=12pt,
+    xrightmargin=4pt,
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+    abovecaptionskip=6pt,
+    literate=
+        {á}{{\'a}}1 {à}{{\`a}}1 {ã}{{\~a}}1 {â}{{\^a}}1
+        {é}{{\'e}}1 {ê}{{\^e}}1 {í}{{\'i}}1
+        {ó}{{\'o}}1 {õ}{{\~o}}1 {ô}{{\^o}}1
+        {ú}{{\'u}}1 {ç}{{\c{c}}}1
+}
+
+% ===================== CONFIGURAÇÕES =====================
+\setlength{\parindent}{1.25cm}
+\setlength{\parskip}{0.4em}
+\onehalfspacing
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue
+}
+
+\captionsetup{
+    font=small,
+    labelfont=bf
+}
+
+% ===================== CABEÇALHO E RODAPÉ =====================
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.5pt}
+\fancyhead[L]{%
+    \includegraphics[height=1cm]{imagens/ufc.png}
+}
+\fancyhead[R]{%
+    \small{Homework 01 -- Estatística Descritiva}
+}
+\renewcommand{\footrulewidth}{0.5pt}
+\fancyfoot[C]{\small Estatística para Engenharia}
+\fancyfoot[R]{\small\thepage}
+\setlength{\headheight}{30pt}
+\fancypagestyle{empty}{
+    \fancyhf{}
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{0pt}
+}
+
+% ===================== DOCUMENTO =====================
+\begin{document}
+
+% ===================== CAPA =====================
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+\includegraphics[width=0.35\textwidth]{imagens/ufc.png}\\[1.5cm]
+{\Large\textbf{ESTATÍSTICA PARA ENGENHARIA}}\\[3cm]
+{\large\textbf{HOMEWORK 01\\
+ANÁLISE DE COMPARTILHAMENTO DE BICICLETAS: UMA ABORDAGEM EM ESTATÍSTICA DESCRITIVA}}\\[8cm]
+\begin{flushleft}
+\textbf{ALUNOS:}\\
+ALEXANDRE DE AGUIAR MARTINS GRANGEIRO -- 578345\\
+DANNY SECUNDINO SOUSA FILHO -- 579763\\
+SAULO GOMES PINTO -- 579493\\
+\end{flushleft}
+\end{titlepage}
+
+\newpage
+
+\section{Questão 1}
+\section{Questão 2}
+\section{Questão 3}
+\section{Questão 4}
+
+\end{document}
