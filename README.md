@@ -73,6 +73,7 @@ git push -u origin <nome_da_branch>
 Não suba para a main, por favor.
 
 iv. Por fim, no site do GitHub, aberto no nosso repositório, faça:
-- Vá até Pull requests > New pull request > [base: main; compare: <nome da branch para a qual você subiu as suas alterações>] > Create pull request
+- Vá até Pull requests > New pull request > [base: main; compare: <nome da branch para a qual você subiu as suas alterações>] > Create pull request (coloque informações pertinnentes lá e tal)
+*Só dar merge quando vc estiver com tempo para ver se as suas alterações não afetam nada do resto do código (.tex ou .r (e até o .md tbm))*
 
 11. vai dar bom, pessoal
