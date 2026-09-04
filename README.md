@@ -34,30 +34,45 @@ git clone https://github.com/dannysecundino/homework-01.git
 6. agora falando do trabalho: vejam o .md de pasta `relatorio` (inclusive é legal escrever assim entre duas crases quando couber, para ficar organizado). vamos usar latex pelo vs code
 [vc altera o .tex e dps transforma em pdf; já fiz a base dele lá]
 7. o código-fonte fica na pasta `codigo`
-8. no fim de tudo, vamos deixar só o relatorio e o .tex na pasta de relatorio e so o codigofonte na pasta de código
+8. no fim de tudo, vamos deixar só o relatorio e o .tex na pasta de relatorio e so o codigofonte na pasta de código (com os dados que couberem estar lá)
 9. acabei de lembrar: vou colocar o banco de dados aqui tbm, vamos vendo a melhor forma de guardar. acho que cabe ser na pasta codigo (é o HW1_bike_sharing.csv).
-10. para subir as suas mudanças:
-nós vammos dividir bem nossas tarefas, para não ter muita sobreposição de mudanças em arquivos, mas sabemos que elas iraão acontecer. por isso, fiz branches com diferentes funções
-- `relatorio`: quando vc fizer alterações na pasta do relatório, suba para essa branch
-- `codigo`: quando vc fizer alterações na pasta do codigo, suba para essa branch
-- `readme`: quando vc fizer alterções no readme, suba para essa branch
+10. Para subir as suas mudanças:
 
-como subir alterações? 
-i. primeiro, faça o padrão para subir no git né
+Nós vamos dividir bem nossas tarefas, para não ter muita sobreposição de mudanças em arquivos, mas sabemos que elas irão acontecer. Por isso, fiz branches com diferentes funções:
+- `relatorio`: quando você fizer alterações na pasta do relatório, suba para essa branch
+- `codigo`: quando você fizer alterações na pasta do código, suba para essa branch
+- `readme`: quando você fizer alterações no README, suba para essa branch
+
+Como subir alterações?
+
+i. Antes de mexer em qualquer arquivo, entre na branch correspondente:
+```bash
+git checkout <nome_da_branch>
+```
+Se a branch ainda não existir localmente, crie e entre nela com:
+```bash
+git checkout -b <nome_da_branch>
+```
+
+Logo depois, antes de começar a trabalhar, dê um `git pull` na `main` para começar atualizado. ou seja, faça
+```bash
+git pull origin main
+```
+
+ii. Faça suas alterações e depois suba para o stage e commite:
 ```bash
 git add .
 git commit -m "sua mensagem de commit aqui"
 ```
-(coloque mensagens de commit boas, que espresse de fato o que vc fez)
+(coloque mensagens de commit boas, que expressem de fato o que você fez)
 
-ii. depois, suba para a branch correspondente (discutido logo acima)
+iii. Suba para a branch correspondente:
 ```bash
 git push -u origin <nome_da_branch>
 ```
-não suba para a main pfvr
+Não suba para a main, por favor.
 
-iii. por fim no site do github, aberto no nosso repositório, faça
-- vá até
-pull request > new pull request > [base: main; comapare: <nome da branch para a qual vc subiu as suas alterações>] > create pull request
+iv. Por fim, no site do GitHub, aberto no nosso repositório, faça:
+- Vá até Pull requests > New pull request > [base: main; compare: <nome da branch para a qual você subiu as suas alterações>] > Create pull request
 
-11. vai dar bom
+11. vai dar bom, pessoal
