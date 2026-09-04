@@ -38,7 +38,7 @@ git clone https://github.com/dannysecundino/homework-01.git
 9. acabei de lembrar: vou colocar o banco de dados aqui tbm, vamos vendo a melhor forma de guardar. acho que cabe ser na pasta codigo (é o HW1_bike_sharing.csv).
 10. Para subir as suas mudanças:
 
-Nós vamos dividir bem nossas tarefas, para não ter muita sobreposição de mudanças em arquivos, mas sabemos que elas irão acontecer. Por isso, fiz branches com diferentes funções:
+Nós vamos dividir bem nossas tarefas, para não ter muita sobreposição de mudanças em arquivos, mas sabemos que elas irão acontecer. Por isso, fiz branches com diferentes funções (elas existem no mundo das ideias de platão, vcs precisam criar na primeira vez pelo visto):
 - `relatorio`: quando você fizer alterações na pasta do relatório, suba para essa branch
 - `codigo`: quando você fizer alterações na pasta do código, suba para essa branch
 - `readme`: quando você fizer alterações no README, suba para essa branch
