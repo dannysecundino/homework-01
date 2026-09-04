@@ -58,4 +58,6 @@ não suba para a main pfvr
 
 iii. por fim no site do github, aberto no nosso repositório, faça
 - vá até
-pull request > new pull request > [base: main; comapare: <nome da branch para a qual vc subiu as suas alterações>]
+pull request > new pull request > [base: main; comapare: <nome da branch para a qual vc subiu as suas alterações>] > create pull request
+
+11. vai dar bom
