@@ -45,7 +45,7 @@ Nós vamos dividir bem nossas tarefas, para não ter muita sobreposição de mud
 
 Como subir alterações?
 
-i. Antes de mexer em qualquer arquivo, entre na branch correspondente:
+i. Antes de mexer em qualquer arquivo, entre na branch correspondente: (por favor mesmo)
 ```bash
 git checkout <nome_da_branch>
 ```
