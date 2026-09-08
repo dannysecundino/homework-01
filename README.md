@@ -3,6 +3,8 @@
 
 oi danny :)
 
+oi danny e bruno. Cade o cocozao do alexandre?
+
 ---
 
 ## Conjunto de Dados Analisados pelo Grupo
