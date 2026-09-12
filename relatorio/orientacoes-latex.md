@@ -13,12 +13,10 @@ sudo apt install texlive-latex-extra texlive-fonts-recommended texlive-lang-port
 
 ## Gerar o PDF
 
-Entre na pasta `relatorio` e execute:
+O projeto pode ser compilado diretamente pelo VS Code utilizando a extensão **LaTeX Workshop**.
 
-```bash
-pdflatex main.tex
-```
+Após abrir o arquivo `main.tex`, utilize o comando **Build LaTeX project** da extensão para gerar o PDF.
 
-O arquivo `main.pdf` será gerado na mesma pasta.
+Se a compilação automática estiver habilitada, o PDF será recompilado automaticamente sempre que o arquivo `.tex` for salvo.
 
-Se o relatório possuir referências bibliográficas ou índice, pode ser necessário executar o comando mais de uma vez.
+O arquivo `main.pdf` será gerado na pasta `relatorio`.

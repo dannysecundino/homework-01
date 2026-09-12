@@ -1,4 +1,4 @@
-\documentclass[12pt, a4paper]{article}
+\documentclass[10pt, a4paper]{article}
 % ===================== PACOTES =====================
 \usepackage[brazil]{babel}
 \usepackage[utf8]{inputenc}
@@ -20,6 +20,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{courier}
+\usepackage{mathpazo}               % Isso que dá a fonte legal
 
 % ===================== ESTILO DOS BLOCOS DE CÓDIGO =====================
 \definecolor{codebg}{RGB}{245,245,250}
@@ -96,11 +97,12 @@
 \vspace*{2cm}
 \includegraphics[width=0.35\textwidth]{imagens/ufc.png}\\[1.5cm]
 {\Large\textbf{ESTATÍSTICA PARA ENGENHARIA}}\\[3cm]
-{\large\textbf{HOMEWORK 01\\
-ANÁLISE DE COMPARTILHAMENTO DE BICICLETAS: UMA ABORDAGEM EM ESTATÍSTICA DESCRITIVA}}\\[8cm]
+{\large\textbf{HOMEWORK 01\\}
+ANÁLISE DE COMPARTILHAMENTO DE BICICLETAS: UMA ABORDAGEM EM ESTATÍSTICA DESCRITIVA}\\[8cm]
 \begin{flushleft}
 \textbf{ALUNOS:}\\
 ALEXANDRE DE AGUIAR MARTINS GRANGEIRO -- 578345\\
+BRUNO DELUIZ LAGE -- 578342\\
 DANNY SECUNDINO SOUSA FILHO -- 579763\\
 SAULO GOMES PINTO -- 579493\\
 \end{flushleft}
@@ -109,6 +111,94 @@ SAULO GOMES PINTO -- 579493\\
 \newpage
 
 \section{Questão 1}
+A primeira questão tem o objetivo de definir o escopo de dados
+a serem utilizados pelo grupo ao longo de toda a análise. Para isso, 
+foi feito um código R que fazia o que foi pedido no enunciado da questão.
+O código é este:
+
+\begin{lstlisting}
+# =========================
+# First Question
+# =========================
+
+# 1. Defining the highest student number
+# students numbers
+alexandre_sn <- 578345
+bruno_sn <- 578342
+danny_sn <- 579763
+saulo_sn <- 579493
+
+# highest student number
+M <- max(c(alexandre_sn, bruno_sn, danny_sn, saulo_sn)) # 579763
+
+# 2. Defining the start and the end of group's dataset
+# start
+r <- 1 + (M %% 100)     # 64
+
+# end
+end <- 300 + r - 1      # 363
+
+# 3. Defining data_group (ie., the group's dataset)
+# loading the entire file
+all_data <- read.csv("HW1_bike_sharing.csv")
+
+# defining our scope
+data_group <- all_data[r:end, ]         # collect the lines 64-363
+
+# 4. Defining the first 10 observations (we'll use them in the subsequent questions to validate our manual computations)
+first_ten <- data_group[1:10, ]
+\end{lstlisting}
+É importante analisar o que, de fato, foi implemtentado com esse código:
+
+Primeiramente, foram definidas variáveis \lstinline{*_sn} contendo, cada uma,
+o valor do número de matrícula de um dos quatro integrantes do grupo. Os valores dos
+números de matrículas são os seguintes:
+
+\begin{enumerate}[label = \alph*)]
+    \item Alexandre Grangeiro: 578345;
+    \item Bruno Lage: 578342;
+    \item Danny Secundino: 579763;
+    \item Saulo Gomes: 579493.
+\end{enumerate}
+
+Após isso, a variável \lstinline{M} foi declarada para guardar o maior número de matrícula dentre
+os números de matrícula dos membros do grupo. Dessa forma, obtém-se
+
+\[
+\boxed{M = 579763}
+\]
+
+Com a informação do maior número de matrícula, foi pssível, então, definir o índice inicial do
+subconjunto de dados a ser analisado nesse trabalho. Tal informação ficou guardada na variável
+\lstinline{r} e ele foi calculado da seguinte maneira:
+
+\[
+r = 1 + (M \; mod \; 100) = 1 + (579763 \; mod \; 100) = 1 + 63 \Rightarrow \boxed{r = 64}
+\]
+
+Em que $mod$ é a operação \textbf{resto de divisão}.\footnote{Em R, essa operação é realizada utilizando \lstinline{\%\%}.}
+
+Com o índice de início do conjunto de dados a ser analisado e considerando que tal conjunto deveria ter
+300 elementos, também foi definido o fim:
+\[
+end = 300 + r - 1 = 300 + 64 - 1 \Rightarrow end = 363
+\]
+
+Com o início e o fim da janela que define o escopo das análises, foi declarado o \lstinline{data_group}, que pode ser usado
+ao longo de todo o código para fazer as outras questões. Também foi definido o \lstinline{first_ten}, que contém as dez primeiras
+observações do conjunto de dados do grupo e que será especialemente útil para comparar os cálculos que serão feitos manualmente com os que
+serão obtidos com o código R.
+
+Daí, foi possível coletar as datas da primeira e da última observação presentes em \lstinline{data_group}. Elas foram:
+\begin{enumerate}[label = \alph*)]
+    \item Data da primeira observação: 05/03/2011 (ou, no formato internacional, 2011-03-05)
+    \item Data da última observação: 29/12/2011 (ou, no formato internacional, 2011-12-29) 
+\end{enumerate}
+
+\textbf{Observação:} Aqui, foram postas as datas da primeira e da última observações, mas essa informação
+também consta na saída do código fonte produzido. \textbf{Recomenda-se que se execute o código} \lstinline{main.r} \textbf{para ver as informações
+que são fornecidas na saída}.
+
 \section{Questão 2}
 \section{Questão 3}
 \section{Questão 4}
