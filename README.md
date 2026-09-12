@@ -1,11 +1,6 @@
 # Homework 1: Estatística Descritiva
+
 [texto introdutório né]
-
-oi danny :)
-
-oi danny e bruno. Cade o cocozao do alexandre?
-
-oi gente
 
 ---
 
