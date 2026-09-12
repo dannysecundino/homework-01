@@ -19,7 +19,6 @@ r <- 1 + (M %% 100)     # 64
 # end
 end <- 300 + r - 1      # 363
 
-
 # 3. Defining data_group (ie., the group's dataset)
 # loading the entire file
 all_data <- read.csv("HW1_bike_sharing.csv")
