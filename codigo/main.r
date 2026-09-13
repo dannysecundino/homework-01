@@ -569,7 +569,7 @@ plot(data_group$temp, data_group$total_user,
 # calculating the correlation coefficient
 temp_tu_cor <- cor(data_group$temp, data_group$total_user)
 
-# 4. The report contain the analyses required at this part of question
+# 4. The report contains the analyses required in this part of question
 
 # 5. Presenting our results
 cat("=========================Third Question==========================\n")
@@ -703,7 +703,7 @@ cat("b) For all group's dataset:\n")
 cat("   i) Correlation coefficient between temperature and total users:", temp_tu_cor, "\n")
 cat("\n")
 
-cat("4. The report contain the analyses required at this part of question.\n")
+cat("4. The report contains the analyses required in this part of question.\n")
 cat("\n\n")
 
 
