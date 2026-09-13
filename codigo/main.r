@@ -204,7 +204,7 @@ cat("   registered: numerical.\n")
 cat("b) Identifying the categories of the categorical variables:\n")
 cat("   dteday: ordinal.\n")
 cat("   season: nominal.\n")
-cat("   weathersit: nominal.\n")
+cat("   weathersit: ordinal.\n")
 
 cat("c) Identifying the units of measurement and the meaning of the numerical variables:\n")
 cat("   instant: no unit of measurement; represents an identification of the observation, like a ID.\n")
@@ -280,7 +280,15 @@ cat("       Upper bound:", upper_bound, "\n")
 cat("   iii) Outliers:\n")
 cat("       Quantity of outliers:", nrow(outliers), "\n")
 cat("       Date of outliers:\n")
-cat("           ", outliers$dteday, "\n")
+for (i in 1:nrow(outliers)){            # to show outliers' dates in a better format (displaying three per line)
+        if(i %% 3 == 1){
+                cat("           ")
+        }
+        cat(outliers$dteday[i], " ")
+        if(i %% 3 == 0){
+                cat("\n")
+        }
+}
 cat("\n")
 
 cat("4. Boxplot and Histogram:\n")
@@ -316,7 +324,7 @@ xn_winter_f10 <- mean(winter_obs_f10$total_user)        # mean
 me_winter_f10 <- median(winter_obs_f10$total_user)      # median
 sd_winter_f10 <- sd(winter_obs_f10$total_user)          # sample standard deviation
 prop_lu_winter_f10 <- nrow(winter_obs_f10[winter_obs_f10$low_usage == 1, ])/nrow(winter_obs_f10)   # proportion of days classified as having low usage compared with all frame  
-if (nrow(winter_obs_f10) > 0){ # we need to check if that is an empty vactor
+if (nrow(winter_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(winter_obs_f10$total_user,                  # boxplot
             main = "Winter Total User (First Ten Observations)",
             ylab = "Number of users",
@@ -329,7 +337,7 @@ xn_spring_f10 <- mean(spring_obs_f10$total_user)        # mean
 me_spring_f10 <- median(spring_obs_f10$total_user)      # median
 sd_spring_f10 <- sd(spring_obs_f10$total_user)          # sample standard deviation
 prop_lu_spring_f10 <- nrow(spring_obs_f10[spring_obs_f10$low_usage == 1, ])/nrow(spring_obs_f10)   # proportion of days classified as having low usage compared with all frame  
-if (nrow(spring_obs_f10) > 0){ # we need to check if that is an empty vactor
+if (nrow(spring_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(spring_obs_f10$total_user,                      # boxplot
             main = "Spring Total User (First Ten Observations)",
             ylab = "Number of users",
@@ -342,7 +350,7 @@ xn_summer_f10 <- mean(summer_obs_f10$total_user)        # mean
 me_summer_f10 <- median(summer_obs_f10$total_user)      # median
 sd_summer_f10 <- sd(summer_obs_f10$total_user)          # sample standard deviation
 prop_lu_summer_f10 <- nrow(summer_obs_f10[summer_obs_f10$low_usage == 1, ])/nrow(summer_obs_f10)   # proportion of days classified as having low usage compared with all frame  
-if (nrow(summer_obs_f10) > 0){ # we need to check if that is an empty vactor
+if (nrow(summer_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(summer_obs_f10$total_user,                      # boxplot
             main = "Summer Total User (First Ten Observations)",
             ylab = "Number of users",
@@ -355,7 +363,7 @@ xn_autumn_f10 <- mean(autumn_obs_f10$total_user)        # mean
 me_autumn_f10 <- median(autumn_obs_f10$total_user)      # median
 sd_autumn_f10 <- sd(autumn_obs_f10$total_user)          # sample standard deviation
 prop_lu_autumn_f10 <- nrow(autumn_obs_f10[autumn_obs_f10$low_usage == 1, ])/nrow(autumn_obs_f10)   # proportion of days classified as having low usage compared with all frame  
-if (nrow(autumn_obs_f10) > 0){ # we need to check if that is an empty vactor
+if (nrow(autumn_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(autumn_obs_f10$total_user,                      # boxplot
             main = "Autumn Total User (First Ten Observations)",
             ylab = "Number of users",
@@ -363,7 +371,7 @@ if (nrow(autumn_obs_f10) > 0){ # we need to check if that is an empty vactor
 }
 
 # with all group's dataset
-# here, we don't need to check if that is an empty vactor, because we know that there are observations for each season in 300 days
+# here, we don't need to check if that is an empty vector, because we know that there are observations for each season in 300 days
 # 1: winter
 winter_obs <- data_group[data_group$season == 1, ]      # observations at winter
 xn_winter <- mean(winter_obs$total_user)                # mean
@@ -411,10 +419,159 @@ boxplot(autumn_obs$total_user,                          # boxplot
 
 # 2. Analyzing system usage for each weather condition
 # for our analyses (weather conditions):
+# 1: Clear
+# 2: Cloudy
+# 3: Light Rain
+# 4: Heavy Rain
+
+# with the first ten observations (to compare with manual computations)
+# 1: Clear
+clear_obs_f10 <- first_ten[first_ten$weathersit == 1, ]         # observations at clear weather
+xn_clear_f10 <- mean(clear_obs_f10$total_user)        # mean
+me_clear_f10 <- median(clear_obs_f10$total_user)      # median
+sd_clear_f10 <- sd(clear_obs_f10$total_user)          # sample standard deviation
+prop_lu_clear_f10 <- nrow(clear_obs_f10[clear_obs_f10$low_usage == 1, ])/nrow(clear_obs_f10)   # proportion of days classified as having low usage compared with all frame
+if(nrow(clear_obs_f10) > 0){ # we need to check if that is an empty vector
+    boxplot(clear_obs_f10$total_user,                      # boxplot
+            main = "Clear Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "orange")
+}
 
 
+# 2: Cloudy
+cloudy_obs_f10 <- first_ten[first_ten$weathersit == 2, ]        # observations at cloudy weather
+xn_cloudy_f10 <- mean(cloudy_obs_f10$total_user)        # mean
+me_cloudy_f10 <- median(cloudy_obs_f10$total_user)      # median
+sd_cloudy_f10 <- sd(cloudy_obs_f10$total_user)          # sample standard deviation
+prop_lu_cloudy_f10 <- nrow(cloudy_obs_f10[cloudy_obs_f10$low_usage == 1, ])/nrow(cloudy_obs_f10)   # proportion of days classified as having low usage compared with all frame
+if(nrow(cloudy_obs_f10) > 0){ # we need to check if that is an empty vector
+    boxplot(cloudy_obs_f10$total_user,                      # boxplot
+            main = "Cloudy Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "lightblue")
+}
 
-# X. Presenting our results
+# 3: Light Rain
+lightrain_obs_f10 <- first_ten[first_ten$weathersit == 3, ]      # observations at light rain weather
+xn_lightrain_f10 <- mean(lightrain_obs_f10$total_user)        # mean
+me_lightrain_f10 <- median(lightrain_obs_f10$total_user)      # median
+sd_lightrain_f10 <- sd(lightrain_obs_f10$total_user)          # sample standard deviation
+prop_lu_lightrain_f10 <- nrow(lightrain_obs_f10[lightrain_obs_f10$low_usage == 1, ])/nrow(lightrain_obs_f10)   # proportion of days classified as having low usage compared with all frame
+if(nrow(lightrain_obs_f10) > 0){ # we need to check if that is an empty vector
+    boxplot(lightrain_obs_f10$total_user,                      # boxplot
+            main = "Light Rain Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "lightgreen")
+}
+
+# 4: Heavy Rain
+heavyrain_obs_f10 <- first_ten[first_ten$weathersit == 4, ]      # observations at heavy rain weather
+xn_heavyrain_f10 <- mean(heavyrain_obs_f10$total_user)        # mean
+me_heavyrain_f10 <- median(heavyrain_obs_f10$total_user)      # median
+sd_heavyrain_f10 <- sd(heavyrain_obs_f10$total_user)          # sample standard deviation
+prop_lu_heavyrain_f10 <- nrow(heavyrain_obs_f10[heavyrain_obs_f10$low_usage == 1, ])/nrow(heavyrain_obs_f10)   # proportion of days classified as having low usage compared with all frame
+if(nrow(heavyrain_obs_f10) > 0){ # we need to check if that is an empty vector
+    boxplot(heavyrain_obs_f10$total_user,                      # boxplot
+            main = "Heavy Rain Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "lightcoral")
+}
+
+# with all group's dataset
+# 1: Clear
+clear_obs <- data_group[data_group$weathersit == 1, ]         # observations at clear weather
+xn_clear <- mean(clear_obs$total_user)                       # mean
+me_clear <- median(clear_obs$total_user)                     # median
+sd_clear <- sd(clear_obs$total_user)                         # sample standard deviation
+prop_lu_clear <- nrow(clear_obs[clear_obs$low_usage == 1, ])/nrow(clear_obs)   # proportion of days classified as having low usage compared with all frame
+if(nrow(clear_obs) > 0){ # we need to check if that is an empty vector
+    boxplot(clear_obs$total_user,                      # boxplot
+            main = "Clear Total User",
+            ylab = "Number of users",
+            col = "steelblue")
+}
+
+# 2: Cloudy
+cloudy_obs <- data_group[data_group$weathersit == 2, ]         # observations at cloudy weather
+xn_cloudy <- mean(cloudy_obs$total_user)                      # mean
+me_cloudy <- median(cloudy_obs$total_user)                    # median
+sd_cloudy <- sd(cloudy_obs$total_user)                        # sample standard deviation
+prop_lu_cloudy <- nrow(cloudy_obs[cloudy_obs$low_usage == 1, ])/nrow(cloudy_obs)   # proportion of days classified as having low usage compared with all frame
+if(nrow(cloudy_obs) > 0){ # we need to check if that is an empty vector
+    boxplot(cloudy_obs$total_user,                      # boxplot
+            main = "Cloudy Total User",
+            ylab = "Number of users",
+            col = "steelblue")
+}
+
+# 3: Light Rain
+lightrain_obs <- data_group[data_group$weathersit == 3, ]         # observations at light rain weather
+xn_lightrain <- mean(lightrain_obs$total_user)                # mean
+me_lightrain <- median(lightrain_obs$total_user)              # median
+sd_lightrain <- sd(lightrain_obs$total_user)                  # sample standard deviation
+prop_lu_lightrain <- nrow(lightrain_obs[lightrain_obs$low_usage == 1, ])/nrow(lightrain_obs)   # proportion of days classified as having low usage compared with all frame
+if(nrow(lightrain_obs) > 0){ # we need to check if that is an empty vector
+    boxplot(lightrain_obs$total_user,                      # boxplot
+            main = "Light Rain Total User",
+            ylab = "Number of users",
+            col = "steelblue")
+}
+
+# 4: Heavy Rain
+heavyrain_obs <- data_group[data_group$weathersit == 4, ]         # observations at heavy rain weather
+xn_heavyrain <- mean(heavyrain_obs$total_user)               # mean
+me_heavyrain <- median(heavyrain_obs$total_user)             # median
+sd_heavyrain <- sd(heavyrain_obs$total_user)                 # sample standard deviation
+prop_lu_heavyrain <- nrow(heavyrain_obs[heavyrain_obs$low_usage == 1, ])/nrow(heavyrain_obs)   # proportion of days classified as having low usage compared with all frame
+if(nrow(heavyrain_obs) > 0){ # we need to check if that is an empty vector
+    boxplot(heavyrain_obs$total_user,                      # boxplot
+            main = "Heavy Rain Total User",
+            ylab = "Number of users",
+            col = "steelblue")
+}
+
+# it's interesting plot a bar graph to see the proportion of days classified as having low usage for each weather condition:
+# with the first ten observations (to compare with manual computations)
+barplot(c(prop_lu_clear_f10, prop_lu_cloudy_f10, prop_lu_lightrain_f10, prop_lu_heavyrain_f10),
+        names.arg = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"),
+        main = "Proportion of Low Usage Days by Weather Condition (First Ten Observations)",
+        ylab = "Proportion",
+        col = "yellow")
+
+# with all group's dataset
+barplot(c(prop_lu_clear, prop_lu_cloudy, prop_lu_lightrain, prop_lu_heavyrain),
+        names.arg = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"),
+        main = "Proportion of Low Usage Days by Weather Condition",
+        ylab = "Proportion",
+        col = "darkgreen")
+
+# 3. Analyzing system usage for each temperature registered
+# with the first ten observations (to compare with manual computations)
+# plotting the scatter plot
+plot(first_ten$temp, first_ten$total_user,
+     main = "Total Users vs Temperature (First Ten Observations)",
+     xlab = "Temperature (°C)",
+     ylab = "Number of total users",
+     pch = 19,          # circle symbol
+     col = "orange")
+# calculating the correlation coefficient
+temp_tu_cor_f10 <- cor(first_ten$temp, first_ten$total_user)
+
+# with all group's dataset
+# plotting the scatter plot
+plot(data_group$temp, data_group$total_user,
+     main = "Total Users vs Temperature",
+     xlab = "Temperature (°C)",
+     ylab = "Number of total users",
+     pch = 19,          # circle symbol
+     col = "steelblue")
+# calculating the correlation coefficient
+temp_tu_cor <- cor(data_group$temp, data_group$total_user)
+
+# 4. The report contain the analyses required at this part of question
+
+# 5. Presenting our results
 cat("=========================Third Question==========================\n")
 cat("1. Analysing system usage for each season of the year:\n")
 cat("Considering the seasons at the northern hemisphere and analysing dteday, we can make a correspondence:\n")
@@ -472,4 +629,91 @@ cat("      Proportion of Low Usage Days: ", prop_lu_autumn, "\n")
 cat("\n")
 
 cat("2. Analyzing system usage for each weather condition:\n")
+cat("We'll use the following correspondence:\n")
+cat("                   1: Clear.\n")
+cat("                   2: Cloudy.\n")
+cat("                   3: Light Rain.\n")
+cat("                   4: Heavy Rain.\n")
+cat("(For each case, we have plotted a boxplot, except for empty-vector cases.)\n")
+cat("(In addition, we have created a bar graph to visualize the proportion of low usage\n")
+cat("days for each weather condition [for all group's dataset and the first ten observations].)\n")
+cat("a) For the first ten observations (to compare with manual computations):\n")
+cat("   i) Clear:\n")
+cat("      Mean: ", xn_clear_f10, "\n")
+cat("      Median: ", me_clear_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_clear_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_clear_f10, "\n")
 
+cat("   ii) Cloudy:\n")
+cat("[As there are no observations for this weather condition among the first ten rows, the results\n")
+cat("below are not particularly meaningful]\n")
+cat("      Mean: ", xn_cloudy_f10, "\n")
+cat("      Median: ", me_cloudy_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_cloudy_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_cloudy_f10, "\n")
+
+cat("   iii) Light Rain:\n")
+cat("[As there are no observations for this weather condition among the first ten rows, the results\n")
+cat("below are not particularly meaningful]\n")
+cat("      Mean: ", xn_lightrain_f10, "\n")
+cat("      Median: ", me_lightrain_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_lightrain_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_lightrain_f10, "\n")
+
+cat("   iv) Heavy Rain:\n")
+cat("[As there are no observations for this weather condition among the first ten rows, the results\n")
+cat("below are not particularly meaningful]\n")
+cat("      Mean: ", xn_heavyrain_f10, "\n")
+cat("      Median: ", me_heavyrain_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_heavyrain_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_heavyrain_f10, "\n")
+
+cat("b) For all group's dataset:\n")
+cat("   i) Clear:\n")
+cat("      Mean: ", xn_clear, "\n")
+cat("      Median: ", me_clear, "\n")
+cat("      Sample Standard Deviation: ", sd_clear, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_clear, "\n")
+
+cat("   ii) Cloudy:\n")
+cat("      Mean: ", xn_cloudy, "\n")
+cat("      Median: ", me_cloudy, "\n")
+cat("      Sample Standard Deviation: ", sd_cloudy, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_cloudy, "\n")
+
+cat("   iii) Light Rain:\n")
+cat("      Mean: ", xn_lightrain, "\n")
+cat("      Median: ", me_lightrain, "\n")
+cat("      Sample Standard Deviation: ", sd_lightrain, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_lightrain, "\n")
+
+cat("   iv) Heavy Rain:\n")
+cat("[As there are no observations for this weather condition among the rows of group's dataset,\n")
+cat("the results below are not particularly meaningful]\n")
+cat("      Mean: ", xn_heavyrain, "\n")
+cat("      Median: ", me_heavyrain, "\n")
+cat("      Sample Standard Deviation: ", sd_heavyrain, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_heavyrain, "\n")
+cat("\n")
+
+cat("3. Analyzing system usage for each temperature registered:\n")
+cat("(At both cases, we have plotted a scatter plot.)\n")
+cat("a) For the first ten observations (to compare with manual computations):\n")
+cat("   i) Correlation coefficient between temperature and total users:", temp_tu_cor_f10, "\n")
+
+cat("b) For all group's dataset:\n")
+cat("   i) Correlation coefficient between temperature and total users:", temp_tu_cor, "\n")
+cat("\n")
+
+cat("4. The report contain the analyses required at this part of question.\n")
+cat("\n\n")
+
+
+# =========================
+# Fourth Question
+# =========================
+
+
+
+# X. Presenting our results
+cat("=========================Fourth Question==========================\n")
