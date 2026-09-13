@@ -141,7 +141,7 @@ boxplot(first_ten$casual,
         col = "orange")
 
 # histogram
-h <- hist(first_ten$casual, plot = FALSE)      # firt make the histogram, withoutplot
+h <- hist(first_ten$casual, plot = FALSE)      # firt make the histogram, without plotting it
 hist(first_ten$casual,                         # plotting the histogram
      main = "Casual Users Histogram (First Ten Observations)",
      xlab = "Number of casual users",
@@ -158,7 +158,7 @@ boxplot(data_group$casual,
         ylab = "Number of casual users",
         col = "steelblue")
 # histogram
-h <- hist(data_group$casual, plot = FALSE)      # firt make the histogram, withoutplot
+h <- hist(data_group$casual, plot = FALSE)      # firt make the histogram, without plotting it
 hist(data_group$casual,                         # plotting the histogram
      main = "Casual Users Histogram",
      xlab = "Number of casual users",
@@ -176,12 +176,18 @@ Q1_lowusage_f10 <- quantile(first_ten$total_user, 0.25)
 # new column low_usage
 first_ten$low_usage <- ifelse(first_ten$total_user < Q1_lowusage_f10, 1, 0)
 
+# proportion of days classified as having low usage compared with all frame
+prop_lu_f10 <- nrow(first_ten[first_ten$low_usage == 1, ])/nrow(first_ten)
+
 # with all group's dataset
 # first quartile
 Q1_lowusage <- quantile(data_group$total_user, 0.25)
 
 # new column low_usage
 data_group$low_usage <- ifelse(data_group$total_user < Q1_lowusage, 1, 0)
+
+# proportion of days classified as having low usage compared with all frame
+prop_lu <- nrow(data_group[data_group$low_usage == 1, ])/nrow(data_group)
 
 # 6. Presenting our results
 cat("=========================Second Question=========================\n")
@@ -285,22 +291,185 @@ cat("5. Variable low_usage:\n")
 cat("a) For the first ten observations (to compare with manual computations):\n")
 cat("   i) First quartile value: Q1 =", Q1_lowusage_f10,"\n")
 cat("   ii) Number of days classified as having low usage:", nrow(first_ten[first_ten$low_usage == 1, ]),"\n")
-cat("   iii) Proportion compared with all frame:", nrow(first_ten[first_ten$low_usage == 1, ])/nrow(first_ten),"\n")
+cat("   iii) Proportion compared with all frame:", prop_lu_f10,"\n")
 cat("b) For all group's dataset:\n")
 cat("   i) First quartile value: Q1 =", Q1_lowusage,"\n")
 cat("   ii) Number of days classified as having low usage:", nrow(data_group[data_group$low_usage == 1, ]),"\n")
-cat("   iii) Proportion compared with all frame:", nrow(data_group[data_group$low_usage == 1, ])/nrow(data_group),"\n")
+cat("   iii) Proportion compared with all frame:", prop_lu,"\n")
 cat("\n\n")
 
 # =========================
 # Third Question
 # =========================
 
-# 
+# 1. Analysing system usage for each season of the year
+# for our analyses (seasons at the northern hemisphere):
+# 1: winter
+# 2: spring
+# 3: summer
+# 4: autumn
+
+# with the first ten observations (to compare with manual computations)
+# 1: winter
+winter_obs_f10 <- first_ten[first_ten$season == 1, ]    # observations at winter
+xn_winter_f10 <- mean(winter_obs_f10$total_user)        # mean
+me_winter_f10 <- median(winter_obs_f10$total_user)      # median
+sd_winter_f10 <- sd(winter_obs_f10$total_user)          # sample standard deviation
+prop_lu_winter_f10 <- nrow(winter_obs_f10[winter_obs_f10$low_usage == 1, ])/nrow(winter_obs_f10)   # proportion of days classified as having low usage compared with all frame  
+if (nrow(winter_obs_f10) > 0){ # we need to check if that is an empty vactor
+    boxplot(winter_obs_f10$total_user,                  # boxplot
+            main = "Winter Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "orange")
+}            
+
+# 2: spring
+spring_obs_f10 <- first_ten[first_ten$season == 2, ]    # observations at spring
+xn_spring_f10 <- mean(spring_obs_f10$total_user)        # mean
+me_spring_f10 <- median(spring_obs_f10$total_user)      # median
+sd_spring_f10 <- sd(spring_obs_f10$total_user)          # sample standard deviation
+prop_lu_spring_f10 <- nrow(spring_obs_f10[spring_obs_f10$low_usage == 1, ])/nrow(spring_obs_f10)   # proportion of days classified as having low usage compared with all frame  
+if (nrow(spring_obs_f10) > 0){ # we need to check if that is an empty vactor
+    boxplot(spring_obs_f10$total_user,                      # boxplot
+            main = "Spring Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "orange")
+}
+
+# 3: summer
+summer_obs_f10 <- first_ten[first_ten$season == 3, ]    # observations at summer
+xn_summer_f10 <- mean(summer_obs_f10$total_user)        # mean
+me_summer_f10 <- median(summer_obs_f10$total_user)      # median
+sd_summer_f10 <- sd(summer_obs_f10$total_user)          # sample standard deviation
+prop_lu_summer_f10 <- nrow(summer_obs_f10[summer_obs_f10$low_usage == 1, ])/nrow(summer_obs_f10)   # proportion of days classified as having low usage compared with all frame  
+if (nrow(summer_obs_f10) > 0){ # we need to check if that is an empty vactor
+    boxplot(summer_obs_f10$total_user,                      # boxplot
+            main = "Summer Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "orange")
+}
+
+# 4: autumn
+autumn_obs_f10 <- first_ten[first_ten$season == 4, ]    # observations at autumn
+xn_autumn_f10 <- mean(autumn_obs_f10$total_user)        # mean
+me_autumn_f10 <- median(autumn_obs_f10$total_user)      # median
+sd_autumn_f10 <- sd(autumn_obs_f10$total_user)          # sample standard deviation
+prop_lu_autumn_f10 <- nrow(autumn_obs_f10[autumn_obs_f10$low_usage == 1, ])/nrow(autumn_obs_f10)   # proportion of days classified as having low usage compared with all frame  
+if (nrow(autumn_obs_f10) > 0){ # we need to check if that is an empty vactor
+    boxplot(autumn_obs_f10$total_user,                      # boxplot
+            main = "Autumn Total User (First Ten Observations)",
+            ylab = "Number of users",
+            col = "orange")
+}
+
+# with all group's dataset
+# here, we don't need to check if that is an empty vactor, because we know that there are observations for each season in 300 days
+# 1: winter
+winter_obs <- data_group[data_group$season == 1, ]      # observations at winter
+xn_winter <- mean(winter_obs$total_user)                # mean
+me_winter <- median(winter_obs$total_user)              # median
+sd_winter <- sd(winter_obs$total_user)                  # sample standard deviation
+prop_lu_winter <- nrow(winter_obs[winter_obs$low_usage == 1, ])/nrow(winter_obs)   # proportion of days classified as having low usage compared with all frame  
+boxplot(winter_obs$total_user,                          # boxplot
+        main = "Winter Total User",
+        ylab = "Number of users",
+        col = "steelblue")
+
+# 2: spring
+spring_obs <- data_group[data_group$season == 2, ]      # observations at spring
+xn_spring <- mean(spring_obs$total_user)                # mean
+me_spring <- median(spring_obs$total_user)              # median
+sd_spring <- sd(spring_obs$total_user)                  # sample standard deviation
+prop_lu_spring <- nrow(spring_obs[spring_obs$low_usage == 1, ])/nrow(spring_obs)   # proportion of days classified as having low usage compared with all frame  
+boxplot(spring_obs$total_user,                          # boxplot
+        main = "Spring Total User",
+        ylab = "Number of users",
+        col = "steelblue")
+
+# 3: summer
+summer_obs <- data_group[data_group$season == 3, ]      # observations at summer
+xn_summer <- mean(summer_obs$total_user)                # mean
+me_summer <- median(summer_obs$total_user)              # median
+sd_summer <- sd(summer_obs$total_user)                  # sample standard deviation
+prop_lu_summer <- nrow(summer_obs[summer_obs$low_usage == 1, ])/nrow(summer_obs)   # proportion of days classified as having low usage compared with all frame  
+boxplot(summer_obs$total_user,                          # boxplot
+        main = "Summer Total User",
+        ylab = "Number of users",
+        col = "steelblue")
+
+# 4: autumn
+autumn_obs <- data_group[data_group$season == 4, ]      # observations at autumn
+xn_autumn <- mean(autumn_obs$total_user)                # mean
+me_autumn <- median(autumn_obs$total_user)              # median
+sd_autumn <- sd(autumn_obs$total_user)                  # sample standard deviation
+prop_lu_autumn <- nrow(autumn_obs[autumn_obs$low_usage == 1, ])/nrow(autumn_obs)   # proportion of days classified as having low usage compared with all frame
+boxplot(autumn_obs$total_user,                          # boxplot
+        main = "Autumn Total User",
+        ylab = "Number of users",
+        col = "steelblue")
 
 
+# 2. Analyzing system usage for each weather condition
+# for our analyses (weather conditions):
 
 
 
 # X. Presenting our results
 cat("=========================Third Question==========================\n")
+cat("1. Analysing system usage for each season of the year:\n")
+cat("Considering the seasons at the northern hemisphere and analysing dteday, we can make a correspondence:\n")
+cat("                   1: winter.\n")
+cat("                   2: spring.\n")
+cat("                   3: summer.\n")
+cat("                   4: autumn.\n")
+cat("(For each case, we have plotted a boxplot, except for empty-vector cases.)\n")
+cat("a) For the first ten observations (to compare with manual computations):\n")
+cat("   i) Winter:\n")
+cat("      Mean: ", xn_winter_f10, "\n")
+cat("      Median: ", me_winter_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_winter_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_winter_f10, "\n")
+
+cat("   ii) Spring:\n")
+cat("      Mean: ", xn_spring_f10, "\n")
+cat("      Median: ", me_spring_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_spring_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_spring_f10, "\n")
+
+cat("   iii) Summer:\n")
+cat("      Mean: ", xn_summer_f10, "\n")
+cat("      Median: ", me_summer_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_summer_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_summer_f10, "\n")
+
+cat("   iv) Autumn:\n")
+cat("      Mean: ", xn_autumn_f10, "\n")
+cat("      Median: ", me_autumn_f10, "\n")
+cat("      Sample Standard Deviation: ", sd_autumn_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_autumn_f10, "\n")
+
+cat("b) For all group's dataset:\n")
+cat("   i) Winter:\n")
+cat("      Mean: ", xn_winter, "\n")
+cat("      Median: ", me_winter, "\n")
+cat("      Sample Standard Deviation: ", sd_winter, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_winter, "\n")
+cat("   ii) Spring:\n")
+cat("      Mean: ", xn_spring, "\n")
+cat("      Median: ", me_spring, "\n")
+cat("      Sample Standard Deviation: ", sd_spring, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_spring, "\n")
+cat("   iii) Summer:\n")
+cat("      Mean: ", xn_summer, "\n")
+cat("      Median: ", me_summer, "\n")
+cat("      Sample Standard Deviation: ", sd_summer, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_summer, "\n")
+cat("   iv) Autumn:\n")
+cat("      Mean: ", xn_autumn, "\n")
+cat("      Median: ", me_autumn, "\n")
+cat("      Sample Standard Deviation: ", sd_autumn, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_autumn, "\n")
+cat("\n")
+
+cat("2. Analyzing system usage for each weather condition:\n")
+
