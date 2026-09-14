@@ -724,7 +724,7 @@ ts_totusers_f10 <- data.frame(
 ts_totusers_f10$dteday <- as.Date(ts_totusers_f10$dteday)       # necessary to plot the time series
 # plotting the time series
 plot(ts_totusers_f10$dteday, ts_totusers_f10$total_user,
-        type = "b",
+        type = "l",
         col = "orange",
         xlab = "Date",
         ylab = "Number of total users",
@@ -732,9 +732,19 @@ plot(ts_totusers_f10$dteday, ts_totusers_f10$total_user,
 )
 # with all group's dataset
 # the time series
-
+ts_totusers <- data.frame(
+        dteday = data_group$dteday,
+        total_user = data_group$total_user
+)
+ts_totusers$dteday <- as.Date(ts_totusers$dteday)       # necessary to plot the time series
 # plotting the time series
-
+plot(ts_totusers$dteday, ts_totusers$total_user,
+        type = "l",
+        col = "steelblue",
+        xlab = "Date",
+        ylab = "Number of total users",
+        main = "Time Series of Total Users"
+)
 
 # X. Presenting our results
 cat("=========================Fourth Question==========================\n")
