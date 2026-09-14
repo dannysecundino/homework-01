@@ -136,14 +136,14 @@ outliers <- data_group[data_group$casual < lower_bound | data_group$casual > upp
 # 4. Boxplot and Histogram
 # with the first ten observations (to compare with manual computations)
 boxplot(first_ten$casual,
-        main = "Casual Users Boxplot (First Ten Observations)",
+        main = "Casual Users Boxplot\n(First Ten Observations)",
         ylab = "Number of casual users",
         col = "orange")
 
 # histogram
 h <- hist(first_ten$casual, plot = FALSE)      # firt make the histogram, without plotting it
 hist(first_ten$casual,                         # plotting the histogram
-     main = "Casual Users Histogram (First Ten Observations)",
+     main = "Casual Users Histogram\n(First Ten Observations)",
      xlab = "Number of casual users",
      ylab = "Density",
      col = "orange",
@@ -326,7 +326,7 @@ sd_winter_f10 <- sd(winter_obs_f10$total_user)          # sample standard deviat
 prop_lu_winter_f10 <- nrow(winter_obs_f10[winter_obs_f10$low_usage == 1, ])/nrow(winter_obs_f10)   # proportion of days classified as having low usage compared with all frame  
 if (nrow(winter_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(winter_obs_f10$total_user,                  # boxplot
-            main = "Winter Total User (First Ten Observations)",
+            main = "Winter Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "orange")
 }            
@@ -339,7 +339,7 @@ sd_spring_f10 <- sd(spring_obs_f10$total_user)          # sample standard deviat
 prop_lu_spring_f10 <- nrow(spring_obs_f10[spring_obs_f10$low_usage == 1, ])/nrow(spring_obs_f10)   # proportion of days classified as having low usage compared with all frame  
 if (nrow(spring_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(spring_obs_f10$total_user,                      # boxplot
-            main = "Spring Total User (First Ten Observations)",
+            main = "Spring Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "orange")
 }
@@ -352,7 +352,7 @@ sd_summer_f10 <- sd(summer_obs_f10$total_user)          # sample standard deviat
 prop_lu_summer_f10 <- nrow(summer_obs_f10[summer_obs_f10$low_usage == 1, ])/nrow(summer_obs_f10)   # proportion of days classified as having low usage compared with all frame  
 if (nrow(summer_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(summer_obs_f10$total_user,                      # boxplot
-            main = "Summer Total User (First Ten Observations)",
+            main = "Summer Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "orange")
 }
@@ -365,7 +365,7 @@ sd_autumn_f10 <- sd(autumn_obs_f10$total_user)          # sample standard deviat
 prop_lu_autumn_f10 <- nrow(autumn_obs_f10[autumn_obs_f10$low_usage == 1, ])/nrow(autumn_obs_f10)   # proportion of days classified as having low usage compared with all frame  
 if (nrow(autumn_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(autumn_obs_f10$total_user,                      # boxplot
-            main = "Autumn Total User (First Ten Observations)",
+            main = "Autumn Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "orange")
 }
@@ -433,7 +433,7 @@ sd_clear_f10 <- sd(clear_obs_f10$total_user)          # sample standard deviatio
 prop_lu_clear_f10 <- nrow(clear_obs_f10[clear_obs_f10$low_usage == 1, ])/nrow(clear_obs_f10)   # proportion of days classified as having low usage compared with all frame
 if(nrow(clear_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(clear_obs_f10$total_user,                      # boxplot
-            main = "Clear Total User (First Ten Observations)",
+            main = "Clear Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "orange")
 }
@@ -447,7 +447,7 @@ sd_cloudy_f10 <- sd(cloudy_obs_f10$total_user)          # sample standard deviat
 prop_lu_cloudy_f10 <- nrow(cloudy_obs_f10[cloudy_obs_f10$low_usage == 1, ])/nrow(cloudy_obs_f10)   # proportion of days classified as having low usage compared with all frame
 if(nrow(cloudy_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(cloudy_obs_f10$total_user,                      # boxplot
-            main = "Cloudy Total User (First Ten Observations)",
+            main = "Cloudy Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "lightblue")
 }
@@ -460,7 +460,7 @@ sd_lightrain_f10 <- sd(lightrain_obs_f10$total_user)          # sample standard 
 prop_lu_lightrain_f10 <- nrow(lightrain_obs_f10[lightrain_obs_f10$low_usage == 1, ])/nrow(lightrain_obs_f10)   # proportion of days classified as having low usage compared with all frame
 if(nrow(lightrain_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(lightrain_obs_f10$total_user,                      # boxplot
-            main = "Light Rain Total User (First Ten Observations)",
+            main = "Light Rain Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "lightgreen")
 }
@@ -473,7 +473,7 @@ sd_heavyrain_f10 <- sd(heavyrain_obs_f10$total_user)          # sample standard 
 prop_lu_heavyrain_f10 <- nrow(heavyrain_obs_f10[heavyrain_obs_f10$low_usage == 1, ])/nrow(heavyrain_obs_f10)   # proportion of days classified as having low usage compared with all frame
 if(nrow(heavyrain_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(heavyrain_obs_f10$total_user,                      # boxplot
-            main = "Heavy Rain Total User (First Ten Observations)",
+            main = "Heavy Rain Total User\n(First Ten Observations)",
             ylab = "Number of users",
             col = "lightcoral")
 }
@@ -535,7 +535,7 @@ if(nrow(heavyrain_obs) > 0){ # we need to check if that is an empty vector
 # with the first ten observations (to compare with manual computations)
 barplot(c(prop_lu_clear_f10, prop_lu_cloudy_f10, prop_lu_lightrain_f10, prop_lu_heavyrain_f10),
         names.arg = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"),
-        main = "Proportion of Low Usage Days by Weather Condition (First Ten Observations)",
+        main = "Proportion of Low Usage Days by Weather Condition\n(First Ten Observations)",
         ylab = "Proportion",
         col = "yellow")
 
@@ -550,7 +550,7 @@ barplot(c(prop_lu_clear, prop_lu_cloudy, prop_lu_lightrain, prop_lu_heavyrain),
 # with the first ten observations (to compare with manual computations)
 # plotting the scatter plot
 plot(first_ten$temp, first_ten$total_user,
-     main = "Total Users vs Temperature (First Ten Observations)",
+     main = "Total Users vs Temperature\n(First Ten Observations)",
      xlab = "Temperature (°C)",
      ylab = "Number of total users",
      pch = 19,          # circle symbol

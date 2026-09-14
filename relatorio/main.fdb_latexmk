@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1789238291.47454 "/home/danny/homework-01/relatorio/main.tex" "main.pdf" "main" 1789238293.40907 0
+["pdflatex"] 1789413489.53059 "/home/danny/homework-01/relatorio/main.tex" "main.pdf" "main" 1789413492.18616 0
   "/etc/texmf/web2c/texmf.cnf" 1787961438.3398 475 c0e671620eb5563b2130f56340a5fde8 ""
-  "/home/danny/homework-01/relatorio/main.tex" 1789238291.14251 6628 bbf341126a18886a6b77d915d99e473b ""
+  "/home/danny/homework-01/relatorio/main.tex" 1789413488.92667 6608 af4a410b2cd51763e25a0f53a55f86a5 ""
   "/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/courier/pcrb8r.tfm" 1136768653 1292 3059476c50a24578715759f22652f3d0 ""
@@ -131,9 +131,9 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1788479977.37416 131070 447c6667b36c37152a1d6cda7e01a5d0 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1788480173 7425046 00a969fb6c608b583071a53db12822af ""
   "imagens/ufc.png" 1789232501.16977 233932 9c1d02b3b17b0a21a3f22d4752914b2c ""
-  "main.aux" 1789238293.27886 689 d8086f7ca9f51f6dd5805f5d4bc7ef18 "pdflatex"
-  "main.out" 1789238293.28186 376 5f6359f182ec5fee75c21137cf31579b "pdflatex"
-  "main.tex" 1789238291.14251 6628 bbf341126a18886a6b77d915d99e473b ""
+  "main.aux" 1789413492.00573 689 d8086f7ca9f51f6dd5805f5d4bc7ef18 "pdflatex"
+  "main.out" 1789413492.00873 376 5f6359f182ec5fee75c21137cf31579b "pdflatex"
+  "main.tex" 1789413488.92667 6608 af4a410b2cd51763e25a0f53a55f86a5 ""
   (generated)
   "main.aux"
   "main.log"

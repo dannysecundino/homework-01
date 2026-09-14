@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.3)  12 SEP 2026 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.3)  14 SEP 2026 16:18
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -558,18 +558,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 5F6359F182EC5FEE75C21137CF31579B;376.
  ) 
 Here is how much of TeX's memory you used:
- 17750 strings out of 475568
- 278313 string characters out of 5777687
- 2144975 words of memory out of 5000000
+ 17751 strings out of 475568
+ 278339 string characters out of 5777687
+ 2142975 words of memory out of 5000000
  39529 multiletter control sequences out of 15000+600000
- 587258 words of font info for 93 fonts, out of 8000000 for 9000
+ 587879 words of font info for 95 fonts, out of 8000000 for 9000
  352 hyphenation exceptions out of 8191
  75i,16n,79p,1035b,1904s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (3 pages, 301692 bytes).
+Output written on main.pdf (3 pages, 301869 bytes).
 PDF statistics:
  131 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams
  45 named destinations out of 1000 (max. 500000)
- 11814 words of extra memory for PDF output out of 12000 (max. 10000000)
+ 12326 words of extra memory for PDF output out of 14400 (max. 10000000)
 

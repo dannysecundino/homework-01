@@ -150,7 +150,7 @@ first_ten <- data_group[1:10, ]
 \end{lstlisting}
 É importante analisar o que, de fato, foi implemtentado com esse código:
 
-Primeiramente, foram definidas variáveis \lstinline{*_sn} contendo, cada uma,
+Primeiramente, foram definidas variáveis \texttt{*\_sn} contendo, cada uma,
 o valor do número de matrícula de um dos quatro integrantes do grupo. Os valores dos
 números de matrículas são os seguintes:
 
@@ -161,7 +161,7 @@ números de matrículas são os seguintes:
     \item Saulo Gomes: 579493.
 \end{enumerate}
 
-Após isso, a variável \lstinline{M} foi declarada para guardar o maior número de matrícula dentre
+Após isso, a variável \texttt{M} foi declarada para guardar o maior número de matrícula dentre
 os números de matrícula dos membros do grupo. Dessa forma, obtém-se
 
 \[
@@ -170,13 +170,13 @@ os números de matrícula dos membros do grupo. Dessa forma, obtém-se
 
 Com a informação do maior número de matrícula, foi pssível, então, definir o índice inicial do
 subconjunto de dados a ser analisado nesse trabalho. Tal informação ficou guardada na variável
-\lstinline{r} e ele foi calculado da seguinte maneira:
+\texttt{r} e ele foi calculado da seguinte maneira:
 
 \[
 r = 1 + (M \; mod \; 100) = 1 + (579763 \; mod \; 100) = 1 + 63 \Rightarrow \boxed{r = 64}
 \]
 
-Em que $mod$ é a operação \textbf{resto de divisão}.\footnote{Em R, essa operação é realizada utilizando \lstinline{\%\%}.}
+Em que $mod$ é a operação \textbf{resto de divisão}.\footnote{Em R, essa operação é realizada utilizando \texttt{\%\%}.}
 
 Com o índice de início do conjunto de dados a ser analisado e considerando que tal conjunto deveria ter
 300 elementos, também foi definido o fim:
@@ -184,19 +184,19 @@ Com o índice de início do conjunto de dados a ser analisado e considerando que
 end = 300 + r - 1 = 300 + 64 - 1 \Rightarrow end = 363
 \]
 
-Com o início e o fim da janela que define o escopo das análises, foi declarado o \lstinline{data_group}, que pode ser usado
-ao longo de todo o código para fazer as outras questões. Também foi definido o \lstinline{first_ten}, que contém as dez primeiras
+Com o início e o fim da janela que define o escopo das análises, foi declarado o \texttt{data\_group}, que pode ser usado
+ao longo de todo o código para fazer as outras questões. Também foi definido o \texttt{first\_ten}, que contém as dez primeiras
 observações do conjunto de dados do grupo e que será especialemente útil para comparar os cálculos que serão feitos manualmente com os que
 serão obtidos com o código R.
 
-Daí, foi possível coletar as datas da primeira e da última observação presentes em \lstinline{data_group}. Elas foram:
+Daí, foi possível coletar as datas da primeira e da última observação presentes em \texttt{data\_group}. Elas foram:
 \begin{enumerate}[label = \alph*)]
     \item Data da primeira observação: 05/03/2011 (ou, no formato internacional, 2011-03-05)
     \item Data da última observação: 29/12/2011 (ou, no formato internacional, 2011-12-29) 
 \end{enumerate}
 
 \textbf{Observação:} Aqui, foram postas as datas da primeira e da última observações, mas essa informação
-também consta na saída do código fonte produzido. \textbf{Recomenda-se que se execute o código} \lstinline{main.r} \textbf{para ver as informações
+também consta na saída do código fonte produzido. \textbf{Recomenda-se que se execute o código} \texttt{main.r} \textbf{para ver as informações
 que são fornecidas na saída}.
 
 \section{Questão 2}
