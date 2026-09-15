@@ -200,7 +200,107 @@ também consta na saída do código fonte produzido. \textbf{Recomenda-se que se
 que são fornecidas na saída}.
 
 \section{Questão 2}
-\section{Questão 3}
+A segunda questão tem o objetivo de caracterizar o conjunto de dados específico do grupo, identificando suas variáveis, calculando medidas estatísticas e analisando a distribuição dos dados. O passo inicial consistiu em preparar o conjunto, estabelecendo a métrica de total de usuários e averiguando a integridade do banco de dados:
+
+\begin{lstlisting}
+# 0. Definindo a nova coluna (total_user)
+data_group$total_user <- data_group$casual + data_group$registered
+first_ten$total_user  <- first_ten$casual + first_ten$registered
+
+# 1. Verificacao de valores ausentes (NAs)
+has_missing_values = any(is.na(data_group))
+\end{lstlisting}
+
+Com a nova coluna \texttt{total\_user} estruturada e a inexistência de valores ausentes confirmada pela função \texttt{any(is.na())}, as variáveis disponíveis foram classificadas segundo sua natureza:
+
+\begin{enumerate}[label = \alph*)]
+    \item \textbf{Numéricas:} \texttt{instant}, \texttt{temp}, \texttt{casual}, \texttt{registered} e \texttt{total\_user}.
+    \item \textbf{Categóricas:} \texttt{dteday}, \texttt{season} e \texttt{weathersit}.
+\end{enumerate}
+
+Em seguida, procedeu-se ao cálculo das medidas de tendência central para as variáveis numéricas:
+\pagebreak
+
+\begin{lstlisting}
+# 2. Calculando medias e medianas (amostra do grupo)
+xn_temp <- mean(data_group$temp)
+xn_casual <- mean(data_group$casual)
+xn_registered <- mean(data_group$registered)
+xn_total_user <- mean(data_group$total_user)
+
+me_temp <- median(data_group$temp)
+me_casual <- median(data_group$casual)
+me_registered <- median(data_group$registered)
+me_total_user <- median(data_group$total_user)
+\end{lstlisting}
+
+\textbf{Observação:} As mesmas funções foram aplicadas ao subconjunto \texttt{first\_ten} para validação das contas manuais. O cálculo da moda não foi implementado, pois as variáveis contínuas não apresentam repetições numéricas com relevância estatística.
+
+Para a análise de dispersão e quartis, a variável \texttt{casual} foi isolada:
+
+\begin{lstlisting}
+# 3. Analise de quartis e IQR
+Q1 <- quantile(data_group$casual, 0.25)
+Q2 <- quantile(data_group$casual, 0.5)
+Q3 <- quantile(data_group$casual, 0.75)
+iqr <- IQR(data_group$casual)
+
+# Limites para identificacao de outliers
+lower_bound <- Q1 - 1.5 * iqr
+upper_bound <- Q3 + 1.5 * iqr
+
+# Filtragem das observacoes atipicas
+outliers <- data_group[data_group$casual < lower_bound | data_group$casual > upper_bound, ]
+\end{lstlisting}
+
+A partir do Intervalo Interquartil ($IQR$), os limites teóricos para a detecção de potenciais valores atípicos (outliers) foram fundamentados nas seguintes equações:
+
+\[
+\boxed{lower\_bound = Q_1 - 1.5 \cdot IQR}
+\]
+\[
+\boxed{upper\_bound = Q_3 + 1.5 \cdot IQR}
+\]
+
+As observações fora dessas extremidades foram armazenadas na variável \texttt{outliers}, permitindo identificar as datas com utilização atípica de usuários casuais. A distribuição desses dados pode ser visualizada nos gráficos a seguir:
+
+\begin{figure}[htbp]
+    \centering
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagens/boxplot_casual.png}
+        \caption{Boxplot dos usuários casuais.}
+        \label{fig:boxplot_casual}
+    \end{minipage}\hfill
+    \begin{minipage}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{imagens/hist_casual.png}
+        \caption{Histograma dos usuários casuais.}
+        \label{fig:hist_casual}
+    \end{minipage}
+\end{figure}
+
+Por fim, a variável indicadora de baixa demanda (\texttt{low\_usage}) foi definida com base no primeiro quartil da métrica global de usuários:
+
+\begin{lstlisting}
+# 5. Definindo a variavel low_usage baseada no Q1 de total_user
+Q1_lowusage <- quantile(data_group$total_user, 0.25)
+data_group$low_usage <- ifelse(data_group$total_user < Q1_lowusage, 1, 0)
+
+# Proporcao de dias de baixa utilizacao
+prop_lu <- nrow(data_group[data_group$low_usage == 1, ]) / nrow(data_group)
+\end{lstlisting}
+
+A condição de baixa utilização obedece à seguinte regra lógica:
+
+\[
+low\_usage = \begin{cases}
+1, & \text{se } total\_user < Q_1 \\
+0, & \text{caso contrário}
+\end{cases}
+\]
+
+\textbf{Observação:} A fim de garantir a concisão do documento e focar nas interpretações, os valores numéricos exatos apurados nestas etapas (médias, medianas, quartis, quantidades precisas de outliers e proporções) estão disponíveis na saída de execução (\textit{Presenting our results}) do script \texttt{main.R}, localizado no repositório.\section{Questão 3}
 \section{Questão 4}
 
 \end{document}
