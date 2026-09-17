@@ -223,6 +223,9 @@ dispostas na tabela a seguir:
 }
 \end{table}
 
+As variáveis \texttt{total\_user} e \texttt{low\_usage} também foram incluídas na tabela, 
+de modo a consolidar em uma única tabela todos os dados que serão utilizados ao longo das análises seguintes.
+
 \textbf{Observação:} Aqui, foram postas as datas da primeira e da última observações, mas essa informação
 também consta na saída do código fonte produzido. \textbf{Recomenda-se que se execute o código} \texttt{main.r} \textbf{para ver as informações
 que são fornecidas na saída}.
@@ -234,12 +237,48 @@ dataset para comparar com o que deu o código R. Depois analise o que foi aprese
 entrar no código: eu fiz uma interface no terminal para ajudar a gnt a só pegar os dados que nos intea. pressam do código! Para rodar o código, navegue até a pasta 
 em que está o código e rode: \texttt{Rscript main.r}!
 \subsection{Ponto 1}
+1. Realize as seguintes análises [Perform the following analyses]:
+* Classifique cada variável quanto ao seu tipo (categórica ou numérica) e justifique a
+classificação [Classify each variable according to its type (categorical or numerical)
+and justify the classification].
+* Identifique as categorias das variáveis categóricas [Identify the categories of the
+categorical variables].
+* Para cada variável numérica, identifique a unidade de medida, quando aplicável,
+e descreva o que ela representa [For each numerical variable, identify its unit of
+measurement, where applicable, and describe what it represents].
+* Verifique a existência de valores ausentes e, caso existam, quantifique-os e indique
+em quais variáveis ocorrem [Check for missing values and, if any are found, quantify
+them and indicate which variables contain them].
 
 \subsection{Ponto 2}
-\subsection{Ponto 3}
-\subsection{Ponto 4}
-\subsection{Ponto 5}
+Para as variáveis numéricas relevantes, calcule as medidas de tendência central: média,
+mediana e, quando aplicável, moda. Explique o significado de cada medida e interprete
+os resultados obtidos no contexto do conjunto de dados
 
+\subsection{Ponto 3}
+Escolha uma das variáveis numéricas relevantes e determine os quartis Q1 , Q2 e Q3
+e o intervalo interquartil. Justifique a escolha da variável e utilize o critério do in-
+tervalo interquartil para determinar os limites inferior e superior para a identificação
+5de possíveis valores atípicos. Quantifique as observações classificadas como possíveis
+valores atípicos e identifique suas respectivas datas. Discuta a relevância dos valores
+identificados para a análise do sistema
+
+\subsection{Ponto 4}
+Para a variável numérica escolhida no item anterior, construa um histograma e um
+boxplot. Analise a distribuição quanto à sua forma, dispersão, assimetria e presença de
+possíveis valores atípicos. Relacione as características observadas nos gráficos com as
+medidas estatísticas calculadas anteriormente e discuta quais aspectos da distribuição
+são melhor evidenciados por cada tipo de gráfico
+
+\subsection{Ponto 5}
+Com base nos quartis calculados anteriormente, utilize o primeiro quartil Q1 como
+critério para classificar um dia como de “baixa utilização” do sistema. A partir desse
+critério, crie a variável binária low\_usage, definida pela Equação
+
+\textbf{[já foi definido]}, abra o código.
+
+Apresente o valor de Q1 , determine o número e a proporção de dias classificados como
+de baixa utilização e explique o significado desse critério no contexto dos dados
 \section{Questão 3}
 \section{Questão 4}
 

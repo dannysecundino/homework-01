@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.3)  17 SEP 2026 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2026.9.3)  17 SEP 2026 20:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -539,7 +539,7 @@ l.175 \[
          [1]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
-Package pdftex.def Info: imagens/ufc.png  used on input line 236.
+Package pdftex.def Info: imagens/ufc.png  used on input line 239.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
 
 
@@ -552,7 +552,7 @@ Package fancyhdr Warning: \headheight is too small (30.0pt):
 [2]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
-Package pdftex.def Info: imagens/ufc.png  used on input line 246.
+Package pdftex.def Info: imagens/ufc.png  used on input line 285.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
 
 
@@ -562,7 +562,20 @@ Package fancyhdr Warning: \headheight is too small (30.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-2.05278pt}.
 
-[3] (./main.aux)
+[3]
+File: imagens/ufc.png Graphic file (type png)
+<use imagens/ufc.png>
+Package pdftex.def Info: imagens/ufc.png  used on input line 285.
+(pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
+
+
+Package fancyhdr Warning: \headheight is too small (30.0pt): 
+(fancyhdr)                Make it at least 32.05278pt, for example:
+(fancyhdr)                \setlength{\headheight}{32.05278pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-2.05278pt}.
+
+[4] (./main.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-22>
@@ -571,18 +584,18 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 76E3456737446C98D1A2F33B18710F53;851.
  ) 
 Here is how much of TeX's memory you used:
- 17783 strings out of 475568
- 278862 string characters out of 5777687
+ 17784 strings out of 475568
+ 278868 string characters out of 5777687
  2142975 words of memory out of 5000000
  39551 multiletter control sequences out of 15000+600000
  591398 words of font info for 101 fonts, out of 8000000 for 9000
  352 hyphenation exceptions out of 8191
  75i,16n,79p,1035b,1904s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (4 pages, 305608 bytes).
+Output written on main.pdf (5 pages, 310585 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 131 compressed objects within 2 object streams
- 52 named destinations out of 1000 (max. 500000)
+ 161 PDF objects out of 1000 (max. 8388607)
+ 134 compressed objects within 2 object streams
+ 53 named destinations out of 1000 (max. 500000)
  13902 words of extra memory for PDF output out of 14400 (max. 10000000)
 
