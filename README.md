@@ -41,6 +41,12 @@ data_group <- all_data[r:end, ]
 ```
 Esse bloco de código consta no código completo, a saber, `codigo/main.r`.
 
+## Como Rodar o Código
+O código foi pensado para ter a sua saída apresentada em uma interface no terminal, então é de extrema importância que o código seja executado. Para isso, **com o R devidamente instalado** na sua máquina, navegue até a pasta `codigo/` e, no terminal digite:
+```bash
+Rscript main.r
+```
+
 TODO: terminar esse readme
 
 ---
