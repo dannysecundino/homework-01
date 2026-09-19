@@ -7,7 +7,7 @@
 ## Conjunto de Dados Analisados pelo Grupo
 Para definir o conjunto de dados a ser analisado, escolhemos o maior número de matrícula dentre os números de matrícula dos membros do grupo ($M = 579763$) e, então, realizamos a seguinte operação para escolher qual seria a primeira observação do nosso conjunto de dados:
 
-$r = 1 + (M \; mod\; 100) = 1 + (579763 \; mod\; 100) = 1 + 63 = 64$.
+$r = 1 + (M \ mod \ 100) = 1 + (579763 \ mod\ 100) = 1 + 63 = 64$.
 
 Além disso, como tínhamos que ter um conjunto com 300 observações, tomamos, como último dado no nosso conjunto de dados o valor $300 + r - 1 = 300 + 64 - 1 = 363$
 
