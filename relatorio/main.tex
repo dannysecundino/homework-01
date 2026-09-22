@@ -229,56 +229,372 @@ de modo a consolidar em uma única tabela todos os dados que serão utilizados a
 \textbf{Observação:} Aqui, foram postas as datas da primeira e da última observações, mas essa informação
 também consta na saída do código fonte produzido. \textbf{Recomenda-se que se execute o código} \texttt{main.r} \textbf{para ver as informações
 que são fornecidas na saída}.
+\pagebreak
 
+% ===================== QUESTÃO 2 =====================
 \section{Questão 2}
-Jovem, temos que responder aos seguinte enunciados e, em cada caso que pedir algum cálculo, fazê-lo à mão com as 10 primeiras observações (eu coloquei em uma tabela na
-questão anterior, pode conferir) do nosso
-dataset para comparar com o que deu o código R. Depois analise o que foi apresentado. para você pegar os dados que o código R fornece, não precisa, a priori,
-entrar no código: eu fiz uma interface no terminal para ajudar a gnt a só pegar os dados que nos intea. pressam do código! Para rodar o código, navegue até a pasta 
-em que está o código e rode: \texttt{Rscript main.r}!
-\subsection{Ponto 1}
-1. Realize as seguintes análises [Perform the following analyses]:
-* Classifique cada variável quanto ao seu tipo (categórica ou numérica) e justifique a
-classificação [Classify each variable according to its type (categorical or numerical)
-and justify the classification].
-* Identifique as categorias das variáveis categóricas [Identify the categories of the
-categorical variables].
-* Para cada variável numérica, identifique a unidade de medida, quando aplicável,
-e descreva o que ela representa [For each numerical variable, identify its unit of
-measurement, where applicable, and describe what it represents].
-* Verifique a existência de valores ausentes e, caso existam, quantifique-os e indique
-em quais variáveis ocorrem [Check for missing values and, if any are found, quantify
-them and indicate which variables contain them].
 
-\subsection{Ponto 2}
-Para as variáveis numéricas relevantes, calcule as medidas de tendência central: média,
-mediana e, quando aplicável, moda. Explique o significado de cada medida e interprete
-os resultados obtidos no contexto do conjunto de dados
+O objetivo desta seção é caracterizar o conjunto de dados específico do grupo (\texttt{data\_group}), definido na Questão 1, calcular e interpretar as medidas de tendência central e os quartis das variáveis numéricas relevantes, identificar possíveis valores atípicos e definir a variável \texttt{low\_usage}. As análises foram realizadas inicialmente de forma manual, com as dez primeiras observações do conjunto (\texttt{first\_ten}), e, em seguida, verificadas e estendidas às 300 observações do grupo por meio do software R.
 
-\subsection{Ponto 3}
-Escolha uma das variáveis numéricas relevantes e determine os quartis Q1 , Q2 e Q3
-e o intervalo interquartil. Justifique a escolha da variável e utilize o critério do in-
-tervalo interquartil para determinar os limites inferior e superior para a identificação
-5de possíveis valores atípicos. Quantifique as observações classificadas como possíveis
-valores atípicos e identifique suas respectivas datas. Discuta a relevância dos valores
-identificados para a análise do sistema
+\subsection{Ponto 1 -- Caracterização das Variáveis}
 
-\subsection{Ponto 4}
-Para a variável numérica escolhida no item anterior, construa um histograma e um
-boxplot. Analise a distribuição quanto à sua forma, dispersão, assimetria e presença de
-possíveis valores atípicos. Relacione as características observadas nos gráficos com as
-medidas estatísticas calculadas anteriormente e discuta quais aspectos da distribuição
-são melhor evidenciados por cada tipo de gráfico
+\subsubsection{Classificação das variáveis}
 
-\subsection{Ponto 5}
-Com base nos quartis calculados anteriormente, utilize o primeiro quartil Q1 como
-critério para classificar um dia como de “baixa utilização” do sistema. A partir desse
-critério, crie a variável binária low\_usage, definida pela Equação
+\begin{itemize}
+    \item \texttt{instant} -- Numérica (discreta): índice sequencial que identifica cada registro; assume valores inteiros que apenas ordenam as observações, sem magnitude física associada.
+    \item \texttt{dteday} -- Categórica (ordinal): representa a data da observação; ainda que expressa em formato numérico (ano-mês-dia), não é submetida a operações aritméticas, apenas ordena os registros no tempo.
+    \item \texttt{season} -- Categórica (nominal): codifica a estação do ano por meio de rótulos numéricos sem relação de ordem ou magnitude entre si.
+    \item \texttt{weathersit} -- Categórica (ordinal): codifica a condição meteorológica; os códigos seguem uma ordem crescente de severidade do tempo.
+    \item \texttt{temp} -- Numérica (contínua): representa a temperatura do dia, em graus Celsius; assume valores reais dentro de um intervalo contínuo.
+    \item \texttt{casual} -- Numérica (discreta): representa a contagem diária de usuários casuais; assume apenas valores inteiros não negativos.
+    \item \texttt{registered} -- Numérica (discreta): representa a contagem diária de usuários registrados; assume apenas valores inteiros não negativos.
+    \item \texttt{total\_user} -- Numérica (discreta): variável derivada (\texttt{casual + registered}); representa o total diário de usuários do sistema.
+\end{itemize}
 
-\textbf{[já foi definido]}, abra o código.
+\subsubsection{Categorias das variáveis categóricas}
 
-Apresente o valor de Q1 , determine o número e a proporção de dias classificados como
-de baixa utilização e explique o significado desse critério no contexto dos dados
+\begin{itemize}
+    \item \texttt{season}: 1 -- inverno, 2 -- primavera, 3 -- verão, 4 -- outono (estações do ano no hemisfério norte).
+    \item \texttt{weathersit}: 1 -- céu limpo, 2 -- nublado, 3 -- chuva fraca, 4 -- chuva forte (ordenadas por severidade da condição meteorológica).
+\end{itemize}
+
+Cabe observar que, no subconjunto de 300 observações do grupo (\texttt{data\_group}), não há nenhum dia classificado com \texttt{weathersit = 4} (chuva forte), de modo que essa categoria, embora definida, não é representada na amostra analisada.
+
+\subsubsection{Unidades e significado das variáveis numéricas}
+
+\begin{itemize}
+    \item \texttt{instant}: sem unidade de medida; identificador sequencial do registro.
+    \item \texttt{temp}: graus Celsius; representa a temperatura observada no dia.
+    \item \texttt{casual}: pessoas/dia; representa a quantidade de usuários que utilizaram o sistema sem vínculo de cadastro.
+    \item \texttt{registered}: pessoas/dia; representa a quantidade de usuários cadastrados que utilizaram o sistema no mesmo dia.
+    \item \texttt{total\_user}: pessoas/dia; variável derivada que soma \texttt{casual} e \texttt{registered}, representando o total de usuários do sistema em cada dia observado.
+\end{itemize}
+
+\subsubsection{Valores ausentes}
+A verificação de valores ausentes foi feita por meio da função \texttt{is.na()} aplicada a \texttt{data\_group} (variável \texttt{has\_missing\_values} no código). O resultado obtido foi \texttt{FALSE}, isto é, não há valores ausentes em nenhuma das variáveis do conjunto de 300 observações do grupo.
+
+\subsection{Ponto 2 -- Medidas de Tendência Central}
+
+As medidas de tendência central foram calculadas para as variáveis numéricas relevantes (\texttt{temp}, \texttt{casual}, \texttt{registered} e \texttt{total\_user}): média, mediana e, quando aplicável, moda.
+
+A média aritmética $\bar{x}$ é dada por
+\[
+\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i
+\]
+
+A mediana $Me$ corresponde ao valor central do conjunto ordenado (ou à média dos dois valores centrais, quando $n$ é par):
+\[
+Me = \frac{x_{(n/2)} + x_{(n/2+1)}}{2}, \quad \text{para } n \text{ par}
+\]
+
+Para o cálculo manual, considera-se
+\[
+n = 10
+\]
+
+\subsubsection{Cálculo manual -- 10 primeiras observações}
+
+A Tabela \ref{tab:valores-ordenados-10} apresenta os valores de cada variável ordenados de forma crescente, com os dois valores centrais (posições 5 e 6, usados no cálculo da mediana) destacados em negrito.
+
+\begin{table}[h]
+\centering
+\caption{Valores ordenados (crescente) -- 10 primeiras observações}
+\label{tab:valores-ordenados-10}
+\begin{tabular}{ccccc}
+\hline
+\textbf{Posição} & \texttt{temp} (°C) & \texttt{casual} & \texttt{registered} & \texttt{total\_user} \\
+\hline
+1  & 10,7 & 46  & 491  & 605  \\
+2  & 12,0 & 114 & 577  & 623  \\
+3  & 12,1 & 191 & 1408 & 1872 \\
+4  & 13,0 & 244 & 1435 & 1891 \\
+5  & \textbf{13,3} & \textbf{247} & \textbf{1437} & \textbf{1977} \\
+6  & \textbf{13,5} & \textbf{316} & \textbf{1628} & \textbf{2046} \\
+7  & 15,4 & 359 & 1687 & 2077 \\
+8  & 15,8 & 640 & 1700 & 2132 \\
+9  & 15,8 & 724 & 1730 & 2133 \\
+10 & 16,0 & 982 & 1817 & 2417 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{\texttt{temp}}
+\[
+\begin{split}
+\bar{x} &= \big(10{,}7+12{,}0+12{,}1+13{,}0+13{,}3 \\
+&\quad{} +13{,}5+15{,}4+15{,}8+15{,}8+16{,}0\big)/10 \\
+&= 137{,}6/10 = 13{,}76 \text{ °C}
+\end{split}
+\]
+\[
+Me = \frac{13{,}3 + 13{,}5}{2} = 13{,}40 \text{ °C}
+\]
+
+\paragraph{\texttt{casual}}
+\[
+\begin{split}
+\bar{x} &= \big(46+114+191+244+247 \\
+&\quad{} +316+359+640+724+982\big)/10 \\
+&= 3863/10 = 386{,}30
+\end{split}
+\]
+\[
+Me = \frac{247 + 316}{2} = 281{,}50
+\]
+
+\paragraph{\texttt{registered}}
+\[
+\begin{split}
+\bar{x} &= \big(491+577+1408+1435+1437 \\
+&\quad{} +1628+1687+1700+1730+1817\big)/10 \\
+&= 13910/10 = 1391{,}00
+\end{split}
+\]
+\[
+Me = \frac{1437 + 1628}{2} = 1532{,}50
+\]
+
+\paragraph{\texttt{total\_user}}
+\[
+\begin{split}
+\bar{x} &= \big(605+623+1872+1891+1977 \\
+&\quad{} +2046+2077+2132+2133+2417\big)/10 \\
+&= 17773/10 = 1777{,}30
+\end{split}
+\]
+\[
+Me = \frac{1977 + 2046}{2} = 2011{,}50
+\]
+
+Os valores calculados manualmente coincidem com os obtidos por meio do código R (variáveis \texttt{xn\_first10\_*} e \texttt{me\_first10\_*}), conforme resumido na Tabela \ref{tab:tendencia-central-10}:
+
+\begin{table}[h]
+\centering
+\caption{Medidas de tendência central -- 10 primeiras observações}
+\label{tab:tendencia-central-10}
+\begin{tabular}{lccc}
+\hline
+\textbf{Variável} & \textbf{Média} & \textbf{Mediana} & \textbf{Moda} \\
+\hline
+\texttt{temp}        & 13,76 °C & 13,40 °C & -- \\
+\texttt{casual}      & 386,30   & 281,50   & -- \\
+\texttt{registered}  & 1391,00  & 1532,50  & -- \\
+\texttt{total\_user} & 1777,30  & 2011,50  & -- \\
+\hline
+\end{tabular}
+\end{table}
+
+Os mesmos cálculos foram estendidos às 300 observações do grupo (variáveis \texttt{xn\_*} e \texttt{me\_*}):
+
+\begin{table}[h]
+\centering
+\caption{Medidas de tendência central -- 300 observações do grupo}
+\label{tab:tendencia-central-300}
+\begin{tabular}{lccc}
+\hline
+\textbf{Variável} & \textbf{Média} & \textbf{Mediana} & \textbf{Moda} \\
+\hline
+\texttt{temp}        & 22,11 °C & 22,20 °C & -- \\
+\texttt{casual}      & 786,92   & 691,50   & -- \\
+\texttt{registered}  & 3025,08  & 3238,50  & -- \\
+\texttt{total\_user} & 3812,00  & 4067,50  & -- \\
+\hline
+\end{tabular}
+\end{table}
+
+Para nenhuma das quatro variáveis numéricas há um valor que se repita com frequência relevante, de modo que a moda não constitui uma medida significativa nesse conjunto de dados, tanto nas 10 primeiras observações quanto nas 300 observações do grupo.
+
+Nas 300 observações, observa-se que a média de \texttt{casual} (786,92) é superior à sua mediana (691,50), indicando uma distribuição assimétrica à direita: a maioria dos dias apresenta uso casual moderado, enquanto um número menor de dias com uso muito elevado eleva o valor da média. Padrão semelhante, embora menos acentuado, é observado nas 10 primeiras observações. Já para \texttt{registered} e \texttt{total\_user}, a média é ligeiramente inferior à mediana, sugerindo leve assimetria à esquerda, compatível com a existência de alguns dias de uso registrado bastante baixo (possivelmente fins de semana ou feriados) que reduzem o valor médio. A variável \texttt{temp} apresenta média e mediana muito próximas nas 300 observações (22,11 °C e 22,20 °C), o que é coerente com o período coberto pela amostra do grupo, que se estende de março a dezembro de 2011, abrangendo estações de temperatura variada e resultando em uma distribuição aproximadamente simétrica.
+
+\subsection{Ponto 3 -- Quartis e Valores Atípicos}
+
+A variável escolhida para a análise de quartis e valores atípicos foi \texttt{casual} (número de usuários casuais por dia). A escolha se justifica por essa variável representar o quantitativo de usuários que utilizam o sistema de forma espontânea, sem vínculo de registro (\texttt{registered}). Por não estarem associados a um cadastro fixo, esses usuários refletem de maneira mais direta a demanda ocasional pelo serviço, tornando essa variável adequada para identificar dias com comportamento de uso atípico em relação ao padrão observado.
+
+Os quartis $Q_1$, $Q_2$ e $Q_3$ dividem o conjunto ordenado de dados em quatro partes de igual tamanho. O intervalo interquartil é dado por
+\[
+IQR = Q_3 - Q_1
+\]
+
+Os limites inferior e superior para identificação de possíveis valores atípicos, segundo o critério do IQR, são dados por
+\[
+LI = Q_1 - 1{,}5 \cdot IQR \qquad LS = Q_3 + 1{,}5 \cdot IQR
+\]
+
+\subsubsection{Cálculo manual dos quartis -- 10 primeiras observações}
+
+Para o cálculo manual, com $N = 10$, a posição de cada quartil no conjunto ordenado é obtida por
+\[
+\text{posição}(Q_1) = \frac{N+1}{4} = \frac{11}{4} = 2{,}75
+\]
+\[
+\text{posição}(Q_2) = \frac{N+1}{2} = \frac{11}{2} = 5{,}50
+\]
+\[
+\text{posição}(Q_3) = \frac{3(N+1)}{4} = \frac{33}{4} = 8{,}25
+\]
+
+Com os valores de \texttt{casual} já ordenados na Tabela \ref{tab:valores-ordenados-10} (46, 114, 191, 244, 247, 316, 359, 640, 724, 982), cada quartil é obtido por interpolação linear entre as posições inteiras adjacentes:
+\[
+Q_1 = 114 + 0{,}75 \cdot (191 - 114) = 171{,}75
+\]
+\[
+Q_2 = 247 + 0{,}5 \cdot (316 - 247) = 281{,}50
+\]
+\[
+Q_3 = 640 + 0{,}25 \cdot (724 - 640) = 661{,}00
+\]
+\[
+IQR = Q_3 - Q_1 = 661{,}00 - 171{,}75 = 489{,}25
+\]
+\[
+LI = 171{,}75 - 1{,}5 \cdot 489{,}25 = -562{,}125 \qquad LS = 661{,}00 + 1{,}5 \cdot 489{,}25 = 1394{,}875
+\]
+
+Como todos os valores de \texttt{casual} nas 10 primeiras observações estão contidos no intervalo $[-562{,}125;\,1394{,}875]$, nenhuma observação é classificada como atípica também pelo cálculo manual, resultado consistente com o obtido via R.
+
+Para as 10 primeiras observações (variáveis \texttt{Q1\_f10}, \texttt{Q2\_f10}, \texttt{Q3\_f10}, \texttt{iqr\_f10}, \texttt{lower\_bound\_f10}, \texttt{upper\_bound\_f10} e \texttt{outliers\_f10} no código):
+
+\begin{table}[h]
+\centering
+\caption{Quartis e limites de valores atípicos de \texttt{casual} -- 10 primeiras observações}
+\label{tab:quartis-10}
+\begin{tabular}{lc}
+\hline
+$Q_1$ & 204,25 \\
+$Q_2$ & 281,50 \\
+$Q_3$ & 569,75 \\
+$IQR$ & 365,50 \\
+Limite inferior & $-344{,}00$ \\
+Limite superior & 1118,00 \\
+\hline
+\end{tabular}
+\end{table}
+
+Observa-se que os valores de $Q_1$ e $Q_3$ calculados manualmente ($171{,}75$ e $661{,}00$) diferem dos valores obtidos pela função \texttt{quantile()} do R ($204{,}25$ e $569{,}75$). Essa diferença decorre da convenção de interpolação adotada por cada método: o cálculo manual utiliza a posição $\frac{N+1}{4}$ (equivalente ao tipo 6 de quantil), enquanto a função \texttt{quantile()} do R utiliza, por padrão, a posição $1+(n-1)\cdot p$ (tipo 7). Já a mediana ($Q_2 = 281{,}50$) coincide exatamente entre os dois métodos, pois ambas as convenções resultam na mesma posição central ($\frac{N+1}{2} = 5{,}5$) para esse caso. Em ambos os métodos, entretanto, a conclusão quanto à ausência de valores atípicos nas 10 primeiras observações se mantém.
+
+O mesmo procedimento (via R) foi aplicado às 300 observações do grupo (variáveis \texttt{Q1}, \texttt{Q2}, \texttt{Q3}, \texttt{iqr}, \texttt{lower\_bound}, \texttt{upper\_bound} e \texttt{outliers}):
+
+\begin{table}[h]
+\centering
+\caption{Quartis e limites de valores atípicos de \texttt{casual} -- 300 observações do grupo}
+\label{tab:quartis-300}
+\begin{tabular}{lc}
+\hline
+$Q_1$ & 376,75 \\
+$Q_2$ & 691,50 \\
+$Q_3$ & 949,75 \\
+$IQR$ & 573,00 \\
+Limite inferior & $-482{,}75$ \\
+Limite superior & 1809,25 \\
+\hline
+\end{tabular}
+\end{table}
+
+Nas 10 primeiras observações, nenhum dia foi classificado como valor atípico: todos os valores de \texttt{casual} nesse subconjunto encontram-se dentro do intervalo $[-344{,}00;\,1118{,}00]$. Já nas 300 observações do grupo, foram identificados 18 dias com valor de \texttt{casual} acima do limite superior (1809,25) -- não houve valores abaixo do limite inferior, o que é esperado, já que esse limite é negativo e \texttt{casual} não assume valores negativos. As datas classificadas como atípicas estão listadas na Tabela \ref{tab:outliers-300}.
+
+\begin{table}[h]
+\centering
+\caption{Dias classificados como valores atípicos de \texttt{casual} -- 300 observações do grupo}
+\label{tab:outliers-300}
+\begin{tabular}{cc|cc}
+\hline
+\textbf{Data} & \textbf{\texttt{casual}} & \textbf{Data} & \textbf{\texttt{casual}} \\
+\hline
+30/04/2011 & 1965 & 09/07/2011 & 1988 \\
+21/05/2011 & 2258 & 16/07/2011 & 2418 \\
+28/05/2011 & 2001 & 17/07/2011 & 2006 \\
+29/05/2011 & 2355 & 20/08/2011 & 1914 \\
+04/06/2011 & 1869 & 03/09/2011 & 1935 \\
+26/06/2011 & 1920 & 04/09/2011 & 2521 \\
+02/07/2011 & 2204 & 08/10/2011 & 2235 \\
+03/07/2011 & 2282 & 09/10/2011 & 2397 \\
+04/07/2011 & 3065 & 15/10/2011 & 1899 \\
+\hline
+\end{tabular}
+\end{table}
+
+Observa-se que todas as datas atípicas se concentram entre final de abril e meados de outubro, período de clima mais ameno no hemisfério norte, e incluem finais de semana e datas próximas a feriados (como 04/07/2011, Dia da Independência dos EUA, e o final de semana de 28--29/05/2011, próximo ao feriado de Memorial Day). Esse padrão é coerente com a natureza da variável \texttt{casual}: por não exigir cadastro, o uso casual do sistema tende a ser mais sensível a condições favoráveis de lazer (bom tempo, folgas e feriados), o que explica a ocorrência de picos pontuais de demanda muito acima do padrão típico. Esses valores atípicos são relevantes para a análise do sistema por sinalizarem dias de pico de demanda que podem exigir redistribuição adicional de bicicletas ou reforço operacional.
+
+\subsection{Ponto 4 -- Histograma e Boxplot}
+
+Para a variável \texttt{casual}, foram construídos histogramas e boxplots, tanto para as 10 primeiras observações quanto para as 300 observações do grupo, permitindo analisar forma, dispersão, assimetria e a presença de valores atípicos.
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/hist_casual_10obs.png}
+    \caption{Histograma -- 10 primeiras observações}
+    \label{fig:hist-casual-10}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_casual_10obs.png}
+    \caption{Boxplot -- 10 primeiras observações}
+    \label{fig:box-casual-10}
+\end{subfigure}
+\caption{Distribuição de \texttt{casual} -- 10 primeiras observações}
+\label{fig:casual-10}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/hist_casual_300obs.png}
+    \caption{Histograma -- 300 observações do grupo}
+    \label{fig:hist-casual-300}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_casual_300obs.png}
+    \caption{Boxplot -- 300 observações do grupo}
+    \label{fig:box-casual-300}
+\end{subfigure}
+\caption{Distribuição de \texttt{casual} -- 300 observações do grupo}
+\label{fig:casual-300}
+\end{figure}
+
+Nas 10 primeiras observações, os valores de \texttt{casual} variam de 46 a 982 usuários por dia. O histograma exibe uma distribuição irregular, esperada dado o tamanho reduzido da amostra, com leve concentração nos valores mais baixos e uma cauda à direita. O boxplot correspondente não apresenta pontos além dos limites dos whiskers, em concordância com a ausência de valores atípicos apontada no Ponto 3, mas já evidencia uma mediana deslocada para a parte inferior da caixa, um primeiro indício de assimetria à direita.
+
+Nas 300 observações do grupo, o histograma revela uma distribuição unimodal com assimetria positiva (à direita) bem mais evidente: a maior parte dos dias concentra-se na faixa entre aproximadamente 200 e 950 usuários casuais (intervalo entre $Q_1$ e $Q_3$), com uma cauda longa se estendendo até o valor máximo de 3065. O boxplot confirma esse padrão -- a mediana está deslocada para a parte inferior da caixa, o whisker superior é bem mais longo que o inferior, e os 18 valores atípicos aparecem representados como pontos isolados acima do limite superior. De forma geral, o histograma evidencia melhor a forma global da distribuição (concentração, cauda e multimodalidade, caso existisse), enquanto o boxplot evidencia de forma mais direta e quantitativa os quartis, a mediana e a posição exata dos valores atípicos.
+
+\subsection{Ponto 5 -- Variável \texttt{low\_usage}}
+
+Com base no primeiro quartil $Q_1$ de \texttt{total\_user}, foi definida a variável binária \texttt{low\_usage}, segundo o critério
+
+\[
+\text{low\_usage} =
+\begin{cases}
+1, & \text{se } \texttt{total\_user} < Q_1 \\
+0, & \text{caso contrário}
+\end{cases}
+\]
+
+Diferentemente da escolha de \texttt{casual} feita no Ponto 3 -- em que a variável foi selecionada pelo grupo entre as opções relevantes --, aqui a variável de referência é \texttt{total\_user} porque o próprio critério de definição de \texttt{low\_usage}, apresentado no enunciado, utiliza explicitamente o primeiro quartil dessa variável como limiar (Equação anterior).
+
+\subsubsection{Cálculo manual de $Q_1$ -- 10 primeiras observações}
+
+Assim como no Ponto 3, a posição do primeiro quartil no conjunto ordenado é obtida por
+\[
+\text{posição}(Q_1) = \frac{N+1}{4} = \frac{11}{4} = 2{,}75, \qquad N = 10
+\]
+
+Com os valores de \texttt{total\_user} já ordenados na Tabela \ref{tab:valores-ordenados-10} (605, 623, 1872, 1891, 1977, 2046, 2077, 2132, 2133, 2417), o quartil é obtido por interpolação linear entre a 2ª e a 3ª posições:
+\[
+Q_1 = 623 + 0{,}75 \cdot (1872 - 623) = 1559{,}75
+\]
+
+Esse valor difere do obtido pela função \texttt{quantile()} do R ($Q_1 = 1876{,}75$) pela mesma razão discutida no Ponto 3: a convenção de interpolação da posição $\frac{N+1}{4}$ (tipo 6) diverge da convenção padrão do R, $1+(n-1)\cdot p$ (tipo 7). Usando o valor manual ($1559{,}75$), apenas 2 das 10 primeiras observações seriam classificadas como \texttt{low\_usage} (20\%), contra as 3 observações (30\%) obtidas com o valor verificado em R. Os resultados apresentados a seguir seguem o valor calculado via R, em consonância com a metodologia adotada no restante do relatório.
+
+Para as 10 primeiras observações, o valor de referência foi $Q_1 = 1876{,}75$ (variável \texttt{Q1\_lowusage\_f10}), resultando em 3 dias classificados como de baixa utilização, correspondendo a uma proporção de 30\% (variável \texttt{prop\_lu\_f10}).
+
+Para as 300 observações do grupo, o valor de referência foi $Q_1 = 3116{,}50$ (variável \texttt{Q1\_lowusage}), resultando em 75 dias classificados como de baixa utilização, correspondendo a uma proporção de 25\% (variável \texttt{prop\_lu}).
+
+Por construção, a proporção de dias classificados como \texttt{low\_usage} tende a se aproximar de 25\%, já que o critério utiliza exatamente o primeiro quartil da própria distribuição de \texttt{total\_user} -- o que é confirmado pelo resultado obtido nas 300 observações do grupo. Na amostra reduzida de 10 observações, a proporção observada (30\%) se afasta ligeiramente desse valor teórico em razão do tamanho pequeno da amostra, que torna a posição exata do quartil mais sensível a poucos valores e a possíveis empates. No contexto do sistema, os dias marcados como \texttt{low\_usage} correspondem tipicamente a condições que desestimulam o uso das bicicletas -- como baixas temperaturas, condições meteorológicas desfavoráveis ou dias da semana com menor mobilidade --, constituindo uma variável útil para segmentar e investigar os fatores associados à baixa demanda do sistema.
+
 \section{Questão 3}
 \section{Questão 4}
 
