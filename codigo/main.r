@@ -712,16 +712,19 @@ cat("\n\n")
 # =========================
 
 # 1. Constructing a time series of total_user
-# [We are going to use the function ts()]
+# [We aren't going to use the function ts(), instead we are going to construct a data.frame()]
+# [We choose a data frame due to fact that the original .csv file contains all observation dates on the column dteday]
 
 # with the first ten observations (to compare with manual computations)
 # the time series
-timeseries_f10 <- ts(first_ten$total_user,
-            start = c(2011, 1),                         # all observations are of 2011
-            frequency = 365
-            )
+ts_totusers_f10 <- data.frame(
+        dteday = first_ten$dteday,
+        total_user = first_ten$total_user
+)
+ts_totusers_f10$dteday <- as.Date(ts_totusers_f10$dteday)       # necessary to plot the time series
 # plotting the time series
-plot(timeseries_f10,
+plot(ts_totusers_f10$dteday, ts_totusers_f10$total_user,
+        type = "l",
         col = "orange",
         xlab = "Date",
         ylab = "Number of total users",
@@ -729,17 +732,19 @@ plot(timeseries_f10,
 )
 # with all group's dataset
 # the time series
-timeseries <- ts(data_group$total_user,
-            start = c(2011, 1),                         # all observations are of 2011
-            frequency = 365
-            )
+ts_totusers <- data.frame(
+        dteday = data_group$dteday,
+        total_user = data_group$total_user
+)
+ts_totusers$dteday <- as.Date(ts_totusers$dteday)       # necessary to plot the time series
 # plotting the time series
-plot(timeseries,
+plot(ts_totusers$dteday, ts_totusers$total_user,
+        type = "l",
         col = "steelblue",
         xlab = "Date",
         ylab = "Number of total users",
         main = "Time Series of Total Users"
 )
+
 # X. Presenting our results
 cat("=========================Fourth Question==========================\n")
-cat("1. We've plotted a time series for the first ten observations and for all group's dataset.\n")
