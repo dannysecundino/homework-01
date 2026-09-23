@@ -68,7 +68,7 @@ first_ten$total_user <- first_ten$casual + first_ten$registered
 
 # in addition, we can check if there are any missing values [we know that there are none, so we'll only store this information on a variable]
 
-has_missing_values = any(is.na(data_group))  # returns TRUE if there are any missing values and FALSE otherwise [we tried it, and the result is FALSE]
+has_missing_values <- any(is.na(data_group))  # returns TRUE if there are any missing values and FALSE otherwise [we tried it, and the result is FALSE]
 
 # 2. Calculating the measures of central tendency [we'll consider the following relevant numerical variables: temp, casual, registered]
 # with the first ten observations (to compare with manual computations)
@@ -449,7 +449,7 @@ if(nrow(cloudy_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(cloudy_obs_f10$total_user,                      # boxplot
             main = "Cloudy Total User\n(First Ten Observations)",
             ylab = "Number of users",
-            col = "lightblue")
+            col = "orange")
 }
 
 # 3: Light Rain
@@ -462,7 +462,7 @@ if(nrow(lightrain_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(lightrain_obs_f10$total_user,                      # boxplot
             main = "Light Rain Total User\n(First Ten Observations)",
             ylab = "Number of users",
-            col = "lightgreen")
+            col = "orange")
 }
 
 # 4: Heavy Rain
@@ -475,7 +475,7 @@ if(nrow(heavyrain_obs_f10) > 0){ # we need to check if that is an empty vector
     boxplot(heavyrain_obs_f10$total_user,                      # boxplot
             main = "Heavy Rain Total User\n(First Ten Observations)",
             ylab = "Number of users",
-            col = "lightcoral")
+            col = "orange")
 }
 
 # with all group's dataset
@@ -746,5 +746,162 @@ plot(ts_totusers$dteday, ts_totusers$total_user,
         main = "Time Series of Total Users"
 )
 
-# X. Presenting our results
+# 2. The variables choosed in 3.4 were: season and weather condition.
+# For each one: a combined boxplot, a bar graph of means, and a bar graph of low_usage proportions
+
+# Season
+# with the first ten observations (to compare with manual computations)
+first_ten$season_f <- factor(first_ten$season,
+                              levels = c(1, 2, 3, 4),
+                              labels = c("Winter", "Spring", "Summer", "Autumn"))
+boxplot(total_user ~ season_f, data = first_ten,
+        main = "Total Users by Season\n(First Ten Observations)",
+        xlab = "Season",
+        ylab = "Number of total users",
+        col = "orange")
+
+means_season_f10 <- c(xn_winter_f10, xn_spring_f10, xn_summer_f10, xn_autumn_f10)
+barplot(means_season_f10,
+        names.arg = c("Winter", "Spring", "Summer", "Autumn"),
+        main = "Mean Total Users by Season\n(First Ten Observations)",
+        ylab = "Mean number of total users",
+        col = "yellow")
+
+prop_lu_season_f10 <- c(prop_lu_winter_f10, prop_lu_spring_f10, prop_lu_summer_f10, prop_lu_autumn_f10)
+barplot(prop_lu_season_f10,
+        names.arg = c("Winter", "Spring", "Summer", "Autumn"),
+        main = "Proportion of Low Usage Days by Season\n(First Ten Observations)",
+        ylab = "Proportion",
+        col = "lightyellow")
+
+# with all group's dataset
+data_group$season_f <- factor(data_group$season,
+                               levels = c(1, 2, 3, 4),
+                               labels = c("Winter", "Spring", "Summer", "Autumn"))
+boxplot(total_user ~ season_f, data = data_group,
+        main = "Total Users by Season",
+        xlab = "Season",
+        ylab = "Number of total users",
+        col = "steelblue")
+
+means_season <- c(xn_winter, xn_spring, xn_summer, xn_autumn)
+barplot(means_season,
+        names.arg = c("Winter", "Spring", "Summer", "Autumn"),
+        main = "Mean Total Users by Season",
+        ylab = "Mean number of total users",
+        col = "darkgreen")
+
+prop_lu_season <- c(prop_lu_winter, prop_lu_spring, prop_lu_summer, prop_lu_autumn)
+barplot(prop_lu_season,
+        names.arg = c("Winter", "Spring", "Summer", "Autumn"),
+        main = "Proportion of Low Usage Days by Season",
+        ylab = "Proportion",
+        col = "forestgreen")
+
+# Weather condition
+# with the first ten observations (to compare with manual computations)
+first_ten$weathersit_f <- factor(first_ten$weathersit,
+                                  levels = c(1, 2, 3, 4),
+                                  labels = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"))
+boxplot(total_user ~ weathersit_f, data = first_ten,
+        main = "Total Users by Weather Condition\n(First Ten Observations)",
+        xlab = "Weather Condition",
+        ylab = "Number of total users",
+        col = "orange")
+
+means_weather_f10 <- c(xn_clear_f10, xn_cloudy_f10, xn_lightrain_f10, xn_heavyrain_f10)
+barplot(means_weather_f10,
+        names.arg = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"),
+        main = "Mean Total Users by Weather Condition\n(First Ten Observations)",
+        ylab = "Mean number of total users",
+        col = "yellow")
+
+# with all group's dataset
+data_group$weathersit_f <- factor(data_group$weathersit,
+                                   levels = c(1, 2, 3, 4),
+                                   labels = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"))
+boxplot(total_user ~ weathersit_f, data = data_group,
+        main = "Total Users by Weather Condition",
+        xlab = "Weather Condition",
+        ylab = "Number of total users",
+        col = "steelblue")
+
+means_weather <- c(xn_clear, xn_cloudy, xn_lightrain, xn_heavyrain)
+barplot(means_weather,
+        names.arg = c("Clear", "Cloudy", "Light Rain", "Heavy Rain"),
+        main = "Mean Total Users by Weather Condition",
+        ylab = "Mean number of total users",
+        col = "darkgreen")
+
+# 3. Deepening the relationship between temperature and total_user, distinguishing low_usage days from the rest
+
+# with the first ten observations (to compare with manual computations)
+plot(first_ten$temp, first_ten$total_user,
+     main = "Total Users vs Temperature by Usage Group\n(First Ten Observations)",
+     xlab = "Temperature (°C)",
+     ylab = "Number of total users",
+     pch = 19,
+     col = ifelse(first_ten$low_usage == 1, "red", "steelblue")         # low usage -> red
+)      
+legend("topleft",
+       legend = c("Low usage", "Normal usage"),
+       col = c("red", "steelblue"),
+       pch = 19)
+
+# correlation within each group (only meaningful if there are enough points per group)
+cor_lowusage_f10 <- cor(first_ten$temp[first_ten$low_usage == 1], first_ten$total_user[first_ten$low_usage == 1])
+cor_normalusage_f10 <- cor(first_ten$temp[first_ten$low_usage == 0], first_ten$total_user[first_ten$low_usage == 0])
+
+# with all group's dataset
+plot(data_group$temp, data_group$total_user,
+     main = "Total Users vs Temperature by Usage Group",
+     xlab = "Temperature (°C)",
+     ylab = "Number of total users",
+     pch = 19,
+     col = ifelse(data_group$low_usage == 1, "red", "steelblue")        # low usage -> red
+)
+legend("topleft",
+       legend = c("Low usage", "Normal usage"),
+       col = c("red", "steelblue"),
+       pch = 19)
+
+# correlation within each group
+cor_lowusage <- cor(data_group$temp[data_group$low_usage == 1], data_group$total_user[data_group$low_usage == 1])
+cor_normalusage <- cor(data_group$temp[data_group$low_usage == 0], data_group$total_user[data_group$low_usage == 0])
+
+# 4. The conclusion will be in the report
+
+# 5. Presenting our results
 cat("=========================Fourth Question==========================\n")
+cat("1. We've plotted a time series for the first ten observations and another for all group's dataset.\n")
+cat("\n")
+cat("2. The variables choosed in 3.4 were: season and weather condition.\n")
+cat("(For each characteristic, we have plotted a combined boxplot and a bar graph of means.\n")
+cat("The bar graph of low_usage proportions for weather condition is the same one plotted\n")
+cat("in Question 3.2; for season, we have plotted a new one.)\n")
+cat("a) For the first ten observations (to compare with manual computations):\n")
+cat("   i) Season:\n")
+cat("      Means: ", means_season_f10, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_season_f10, "\n")
+cat("   ii) Weather condition:\n")
+cat("      Means: ", means_weather_f10, "\n")
+cat("      Proportion of Low Usage Days: ", c(prop_lu_clear_f10, prop_lu_cloudy_f10, prop_lu_lightrain_f10, prop_lu_heavyrain_f10), "\n")
+cat("b) For all group's dataset:\n")
+cat("   i) Season:\n")
+cat("      Means: ", means_season, "\n")
+cat("      Proportion of Low Usage Days: ", prop_lu_season, "\n")
+cat("   ii) Weather condition:\n")
+cat("      Means: ", means_weather, "\n")
+cat("      Proportion of Low Usage Days: ", c(prop_lu_clear, prop_lu_cloudy, prop_lu_lightrain, prop_lu_heavyrain), "\n")
+cat("\n")
+cat("3. Deepening the relationship between temperature and total_user by usage group:\n")
+cat("a) For the first ten observations (to compare with manual computations):\n")
+cat("   i) Correlation coefficient within low_usage days: ", cor_lowusage_f10, "\n")
+cat("   ii) Correlation coefficient within normal usage days: ", cor_normalusage_f10, "\n")
+cat("b) For all group's dataset:\n")
+cat("   i) Correlation coefficient within low_usage days: ", cor_lowusage, "\n")
+cat("   ii) Correlation coefficient within normal usage days: ", cor_normalusage, "\n")
+cat("\n")
+cat("4. The conclusion will be in the report.\n")
+cat("\n")
+cat("=============================The End==============================\n")
