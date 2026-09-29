@@ -1,3 +1,9 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+
+\title{homeworkrelatorio}
+\author{Alexandre Grangeiro}
+\date{September 2026}
 \documentclass[10pt, a4paper]{article}
 % ===================== PACOTES =====================
 \usepackage[brazil]{babel}
@@ -20,6 +26,7 @@
 \usepackage{listings}
 \usepackage{xcolor}
 \usepackage{courier}
+\usepackage{float}
 \usepackage{mathpazo}               % Isso que dá a fonte legal
 
 % ===================== ESTILO DOS BLOCOS DE CÓDIGO =====================
@@ -596,6 +603,364 @@ Para as 300 observações do grupo, o valor de referência foi $Q_1 = 3116{,}50$
 Por construção, a proporção de dias classificados como \texttt{low\_usage} tende a se aproximar de 25\%, já que o critério utiliza exatamente o primeiro quartil da própria distribuição de \texttt{total\_user} -- o que é confirmado pelo resultado obtido nas 300 observações do grupo. Na amostra reduzida de 10 observações, a proporção observada (30\%) se afasta ligeiramente desse valor teórico em razão do tamanho pequeno da amostra, que torna a posição exata do quartil mais sensível a poucos valores e a possíveis empates. No contexto do sistema, os dias marcados como \texttt{low\_usage} correspondem tipicamente a condições que desestimulam o uso das bicicletas -- como baixas temperaturas, condições meteorológicas desfavoráveis ou dias da semana com menor mobilidade --, constituindo uma variável útil para segmentar e investigar os fatores associados à baixa demanda do sistema.
 
 \section{Questão 3}
+
+O objetivo desta seção é investigar as características associadas aos dias de menor utilização do sistema, a partir da variável \texttt{low\_usage} definida na Questão 2. Assim como nas seções anteriores, os cálculos foram feitos manualmente com as dez primeiras observações (\texttt{first\_ten}) e verificados e estendidos às 300 observações do grupo (\texttt{data\_group}) por meio do R. Para as 300 observações, o limiar de baixa utilização é $Q_1 = 3116{,}50$ (variável \texttt{Q1\_lowusage}); para as 10 primeiras, $Q_1 = 1876{,}75$ (variável \texttt{Q1\_lowusage\_f10}), ambos referentes a \texttt{total\_user}. O desvio padrão calculado é o amostral (denominador $n-1$), o mesmo da função \texttt{sd()} do R.
+
+\subsection{Ponto 1 -- Utilização por Estação do Ano}
+
+Para cada estação foram calculados a média, a mediana e o desvio padrão de \texttt{total\_user}, além da proporção de dias classificados como \texttt{low\_usage}.
+
+\subsubsection{Cálculo manual -- 10 primeiras observações}
+
+As 10 primeiras observações (05/03/2011 a 14/03/2011) pertencem todas à estação 1 (inverno). Portanto, as demais estações não possuem observações nesse subconjunto e suas medidas são indefinidas. A Tabela \ref{tab:total-user-low-usage-inverno} apresenta os dados, com \texttt{low\_usage} calculado com $Q_1 = 1876{,}75$.
+
+\begin{table}[h]
+\centering
+\caption{Total de usuários e indicador de baixo uso -- 10 primeiras observações de inverno}
+\label{tab:total-user-low-usage-inverno}
+\begin{tabular}{ccccccc}
+\hline
+\textbf{Instant} & \textbf{Data} & \textbf{Estação} & \texttt{casual} & \texttt{registered} & \texttt{total\_user} & \texttt{low\_usage} \\
+\hline
+64 & 2011-03-05 & 1 & 640 & 1437 & 2077 & 0 \\
+65 & 2011-03-06 & 1 & 114 & 491  & 605  & 1 \\
+66 & 2011-03-07 & 1 & 244 & 1628 & 1872 & 1 \\
+67 & 2011-03-08 & 1 & 316 & 1817 & 2133 & 0 \\
+68 & 2011-03-09 & 1 & 191 & 1700 & 1891 & 0 \\
+69 & 2011-03-10 & 1 & 46  & 577  & 623  & 1 \\
+70 & 2011-03-11 & 1 & 247 & 1730 & 1977 & 0 \\
+71 & 2011-03-12 & 1 & 724 & 1408 & 2132 & 0 \\
+72 & 2011-03-13 & 1 & 982 & 1435 & 2417 & 0 \\
+73 & 2011-03-14 & 1 & 359 & 1687 & 2046 & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\paragraph{Média}
+\[
+\bar{x} = \frac{2077 + 605 + 1872 + 2133 + 1891 + 623 + 1977 + 2132 + 2417 + 2046}{10} = \frac{17773}{10} = 1777{,}30
+\]
+
+\paragraph{Mediana}
+Com os valores ordenados ($605,\ 623,\ 1872,\ 1891,\ 1977,\ 2046,\ 2077,\ 2132,\ 2133,\ 2417$) e $n = 10$ par,
+\[
+Me = \frac{x_{(5)} + x_{(6)}}{2} = \frac{1977 + 2046}{2} = 2011{,}50
+\]
+
+\paragraph{Desvio padrão amostral}
+\[
+\begin{split}
+\sum_{i=1}^{10}(x_i-\bar{x})^2 &= 89820{,}09 + 1374287{,}29 + 8968{,}09 + 126522{,}49 + 12927{,}69 \\
+&\quad{} + 1332409{,}49 + 39880{,}09 + 125811{,}09 + 409216{,}09 + 72199{,}69 = 3592042{,}10
+\end{split}
+\]
+\[
+s = \sqrt{\frac{3592042{,}10}{10-1}} = \sqrt{399115{,}79} \approx 631{,}76
+\]
+
+\paragraph{Proporção de \texttt{low\_usage}}
+Os instants 65, 66 e 69 têm $\texttt{total\_user} < 1876{,}75$:
+\[
+p = \frac{0+1+1+0+0+1+0+0+0+0}{10} = \frac{3}{10} = 0{,}30
+\]
+
+Os valores calculados manualmente coincidem com os obtidos por meio do código R (variáveis \texttt{xn\_winter\_f10}, \texttt{me\_winter\_f10}, \texttt{sd\_winter\_f10} e \texttt{prop\_lu\_winter\_f10}): média $1777{,}30$, mediana $2011{,}50$, $s = 631{,}7561$ e proporção $0{,}3$. Para primavera, verão e outono, as variáveis correspondentes resultam em \texttt{NaN}/\texttt{NA}, e o código evita o boxplot desses grupos vazios.
+
+\subsubsection{Resultados para as 300 observações do grupo}
+
+O mesmo procedimento foi aplicado às 300 observações (variáveis \texttt{xn\_*}, \texttt{me\_*}, \texttt{sd\_*} e \texttt{prop\_lu\_*} de cada estação). O inverno tem 25 dias no recorte do grupo (16 dias de março e 9 de dezembro); primavera, verão e outono têm 92, 94 e 89 dias, respectivamente.
+
+\begin{table}[h]
+\centering
+\caption{Utilização do sistema por estação -- 300 observações do grupo}
+\label{tab:season-300}
+\begin{tabular}{lccccc}
+\hline
+\textbf{Estação} & $n$ & \textbf{Média} & \textbf{Mediana} & \textbf{Desv. padrão} & \textbf{Prop. \texttt{low\_usage}} \\
+\hline
+Inverno   & 25 & 2019,92 & 2132,00 & 743,46  & 0,9200 \\
+Primavera & 92 & 3775,17 & 4085,50 & 1138,90 & 0,2609 \\
+Verão     & 94 & 4464,36 & 4615,50 & 798,35  & 0,0426 \\
+Outono    & 89 & 3664,46 & 3717,00 & 983,01  & 0,2697 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.5\textwidth]{imagens/box_winter_10obs.png}
+\caption{Boxplot de \texttt{total\_user} -- 10 primeiras observações (inverno)}
+\label{fig:box-season-10}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_winter_300obs.png}
+    \caption{Inverno}
+    \label{fig:box-winter-300}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_spring_300obs.png}
+    \caption{Primavera}
+    \label{fig:box-spring-300}
+\end{subfigure}
+
+\vspace{0.5cm}
+
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_summer_300obs.png}
+    \caption{Verão}
+    \label{fig:box-summer-300}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_autumn_300obs.png}
+    \caption{Outono}
+    \label{fig:box-autumn-300}
+\end{subfigure}
+\caption{Boxplot de \texttt{total\_user} por estação -- 300 observações do grupo}
+\label{fig:box-season-300}
+\end{figure}
+
+O verão apresenta a maior média (4464,36) e a maior mediana (4615,50), com apenas 4,26\% de dias de baixa utilização, e é a estação de menor dispersão em torno da média (desvio padrão de 798,35). O inverno é o oposto: menor média (2019,92) e 92\% dos dias abaixo do limiar $Q_1 = 3116{,}50$ (23 dos 25 dias), ou seja, quase todo dia de inverno é de baixa utilização. Primavera e outono ficam em posição intermediária, com proporções de \texttt{low\_usage} próximas de 26--27\%, valores parecidos com os 25\% esperados para o conjunto todo. A primavera tem o maior desvio padrão (1138,90), possivelmente dado que está entre o inverno (de menor uso) e o verão (de maior uso). Em todas as estações a média é inferior à mediana, o que sugere leve assimetria à esquerda, provocada por dias isolados de uso muito baixo. O inverno tem apenas 25 dias no recorte do grupo, de modo que suas medidas são menos estáveis que as das demais estações.
+
+\subsection{Ponto 2 -- Utilização por Condição Meteorológica}
+
+Para cada condição (1 -- céu limpo, 2 -- nublado, 3 -- chuva fraca, 4 -- chuva forte), foram calculados a média e o desvio padrão de \texttt{total\_user} e a proporção de dias de \texttt{low\_usage}. O código calcula também a mediana, que foi incluída na análise das 300 observações.
+
+\subsubsection{Cálculo manual -- 10 primeiras observações}
+
+Nas 10 primeiras observações, há 5 dias de céu limpo (instants 66, 67, 71, 72 e 73), 4 nublados (64, 65, 68 e 70), 1 de chuva fraca (69) e nenhum de chuva forte.
+
+\paragraph{Céu limpo} ($n = 5$; valores $1872,\ 2133,\ 2132,\ 2417,\ 2046$):
+\[
+\bar{x} = \frac{10600}{5} = 2120{,}00
+\]
+\[
+\sum (x_i-\bar{x})^2 = 61504 + 169 + 144 + 88209 + 5476 = 155502
+\qquad
+s = \sqrt{\frac{155502}{4}} = \sqrt{38875{,}5} \approx 197{,}17
+\]
+\[
+p = \frac{1}{5} = 0{,}20 \quad (\text{apenas o instant 66, com } 1872 < 1876{,}75)
+\]
+
+\paragraph{Nublado} ($n = 4$; valores $2077,\ 605,\ 1891,\ 1977$):
+\[
+\bar{x} = \frac{6550}{4} = 1637{,}50
+\]
+\[
+\sum (x_i-\bar{x})^2 = 193160{,}25 + 1066056{,}25 + 64262{,}25 + 115260{,}25 = 1438739
+\qquad
+s = \sqrt{\frac{1438739}{3}} \approx 692{,}52
+\]
+\[
+p = \frac{1}{4} = 0{,}25 \quad (\text{apenas o instant 65, com } 605 < 1876{,}75)
+\]
+
+\paragraph{Chuva fraca} ($n = 1$; valor $623$): $\bar{x} = 623{,}00$ e $p = 1{,}00$. Com $n = 1$, o desvio padrão amostral é indefinido, pois o denominador $n-1$ é nulo (\texttt{NA} no R).
+
+\paragraph{Chuva forte} ($n = 0$): não há observações, logo média, desvio padrão e proporção são indefinidos.
+
+\begin{table}[h]
+\centering
+\caption{Utilização por condição meteorológica -- 10 primeiras observações}
+\label{tab:weather-10}
+\begin{tabular}{lcccc}
+\hline
+\textbf{Condição} & $n$ & \textbf{Média} & \textbf{Desv. padrão} & \textbf{Prop. \texttt{low\_usage}} \\
+\hline
+Céu limpo   & 5 & 2120,00 & 197,17 & 0,20 \\
+Nublado     & 4 & 1637,50 & 692,52 & 0,25 \\
+Chuva fraca & 1 & 623,00  & --     & 1,00 \\
+Chuva forte & 0 & --      & --     & --   \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_clear_10obs.png}
+    \caption{Céu limpo}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_cloudy_10obs.png}
+    \caption{Nublado}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_lightrain_10obs.png}
+    \caption{Chuva fraca}
+\end{subfigure}
+\caption{Boxplot de \texttt{total\_user} por condição meteorológica -- 10 primeiras observações}
+\label{fig:box-weather-10}
+\end{figure}
+
+Os valores coincidem com os do código R (variáveis \texttt{xn\_*\_f10}, \texttt{sd\_*\_f10} e \texttt{prop\_lu\_*\_f10} de cada condição). Com grupos de tamanhos 5, 4 e 1, não há valores suficientes para fazer comparações sem distorções.
+
+\subsubsection{Resultados para as 300 observações do grupo}
+
+Nas 300 observações, há 185 dias de céu limpo, 101 nublados e 14 de chuva fraca. Não há nenhum dia de chuva forte (\texttt{weathersit = 4}), como já observado no Ponto 1 da Questão 2, e por isso essa condição não pode ser analisada.
+
+\begin{table}[h]
+\centering
+\caption{Utilização por condição meteorológica -- 300 observações do grupo}
+\label{tab:weather-300}
+\begin{tabular}{lcccccc}
+\hline
+\textbf{Condição} & $n$ & \textbf{Média} & \textbf{Mediana} & \textbf{Desv. padrão} & \textbf{Dias \texttt{low\_usage}} & \textbf{Proporção} \\
+\hline
+Céu limpo   & 185 & 4149,83 & 4381,00 & 990,24  & 26 & 0,1405 \\
+Nublado     & 101 & 3477,98 & 3740,00 & 1085,68 & 35 & 0,3465 \\
+Chuva fraca & 14  & 1757,57 & 1829,50 & 793,95  & 14 & 1,0000 \\
+Chuva forte & 0   & --      & --      & --      & -- & --     \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_clear_300obs.png}
+    \caption{Céu limpo}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_cloudy_300obs.png}
+    \caption{Nublado}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.31\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/box_lightrain_300obs.png}
+    \caption{Chuva fraca}
+\end{subfigure}
+\caption{Boxplot de \texttt{total\_user} por condição meteorológica -- 300 observações do grupo}
+\label{fig:box-weather-300}
+\end{figure}
+
+
+\begin{figure}[H]
+\centering
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/bar_lowusage_weather_10obs.png}
+    \caption{10 primeiras observações}
+\end{subfigure}
+\hfill
+\begin{subfigure}{0.48\textwidth}
+    \centering
+    \includegraphics[width=\textwidth]{imagens/bar_lowusage_weather_300obs.png}
+    \caption{300 observações do grupo}
+\end{subfigure}
+\caption{Proporção de dias de baixa utilização por condição meteorológica}
+\label{fig:bar-lowusage-weather}
+\end{figure}
+
+A média de \texttt{total\_user} cai à medida que a condição meteorológica piora: 4149,83 (céu limpo), 3477,98 (nublado) e 1757,57 (chuva fraca), com medianas na mesma ordem. Em chuva fraca, a média é menos da metade da observada em dias de céu limpo. A proporção de \texttt{low\_usage} reforça o padrão: 14,05\% em dias de céu limpo, 34,65\% em dias nublados e 100\% em dias de chuva fraca, isto é, todos os 14 dias de chuva fraca estão abaixo do limiar $Q_1 = 3116{,}50$. Os desvios padrão são de magnitude semelhante (entre 794 e 1086), com a maior variabilidade nos dias nublados. Como o grupo de chuva fraca tem apenas 14 dias e não há dias de chuva forte, as conclusões sobre condições adversas devem ser tomadas com cautela.
+
+\subsection{Ponto 3 -- Relação entre Temperatura e \texttt{total\_user}}
+
+A associação linear entre a temperatura ($x$, em °C) e \texttt{total\_user} ($y$) foi medida pelo coeficiente de correlação:
+\[
+r = \frac{\sum_{i=1}^{n}(x_i-\bar{x})(y_i-\bar{y})}{\sqrt{\sum_{i=1}^{n}(x_i-\bar{x})^2\,\sum_{i=1}^{n}(y_i-\bar{y})^2}}
+\]
+
+\subsubsection{Cálculo manual -- 10 primeiras observações}
+
+Com $\bar{x} = 13{,}76$ e $\bar{y} = 1777{,}30$, obtém-se a Tabela 12.
+
+\begin{table}[h]
+\centering
+\caption{Cálculo auxiliar da correlação -- 10 primeiras observações}
+\label{tab:corr-aux-10}
+\resizebox{\textwidth}{!}{%
+\footnotesize
+\begin{tabular}{cccccccc}
+\hline
+\textbf{Instant} & $x_i$ & $y_i$ & $x_i-\bar{x}$ & $y_i-\bar{y}$ & $(x_i-\bar{x})^2$ & $(y_i-\bar{y})^2$ & $(x_i-\bar{x})(y_i-\bar{y})$ \\
+\hline
+64 & 15,8 & 2077 & 2,04  & 299,7   & 4,1616 & 89820,09   & 611,388   \\
+65 & 15,4 & 605  & 1,64  & -1172,3 & 2,6896 & 1374287,29 & -1922,572 \\
+66 & 10,7 & 1872 & -3,06 & 94,7    & 9,3636 & 8968,09    & -289,782  \\
+67 & 12,0 & 2133 & -1,76 & 355,7   & 3,0976 & 126522,49  & -626,032  \\
+68 & 12,1 & 1891 & -1,66 & 113,7   & 2,7556 & 12927,69   & -188,742  \\
+69 & 16,0 & 623  & 2,24  & -1154,3 & 5,0176 & 1332409,49 & -2585,632 \\
+70 & 13,0 & 1977 & -0,76 & 199,7   & 0,5776 & 39880,09   & -151,772  \\
+71 & 13,5 & 2132 & -0,26 & 354,7   & 0,0676 & 125811,09  & -92,222   \\
+72 & 15,8 & 2417 & 2,04  & 639,7   & 4,1616 & 409216,09  & 1304,988  \\
+73 & 13,3 & 2046 & -0,46 & 268,7   & 0,2116 & 72199,69   & -123,602  \\
+\hline
+\multicolumn{5}{r}{\textbf{Soma}} & 32,104 & 3592042,10 & -4063,980 \\
+\hline
+\end{tabular}%
+}
+\end{table}
+
+\[
+r = \frac{-4063{,}98}{\sqrt{32{,}104 \times 3592042{,}10}} = \frac{-4063{,}98}{\sqrt{115318919{,}6}} \approx \frac{-4063{,}98}{10738{,}67} \approx -0{,}3784
+\]
+
+Esse valor coincide com o obtido no código R (variável \texttt{temp\_tu\_cor\_f10} $= -0{,}3784437$). Nas 10 primeiras observações, a associação é moderada e de sinal negativo, contrariando a expectativa de que dias mais quentes tenham mais usuários. Isso pode muito bem decorrer do tamanho reduzido da amostra: os dois menores valores de \texttt{total\_user} (605 e 623) ocorrem em dias de temperatura relativamente alta para o subconjunto (15,4 °C e 16,0 °C), sendo o segundo um dia de chuva fraca. Nesse subconjunto, outros fatores que não a temperatura dominam a variação do uso.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imagens/scatter_temp_10obs.png}
+\caption{Diagrama de dispersão entre \texttt{temp} e \texttt{total\_user} -- 10 primeiras observações}
+\label{fig:scatter-temp-10}
+\end{figure}
+
+\subsubsection{Resultados para as 300 observações do grupo}
+
+Para as 300 observações, temos do código (variável \texttt{temp\_tu\_cor})
+\[
+r = 0{,}6376 \qquad r^2 \approx 0{,}4065
+\]
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{imagens/scatter_temp_300obs.png}
+\caption{Diagrama de dispersão entre \texttt{temp} e \texttt{total\_user} -- 300 observações do grupo}
+\label{fig:scatter-temp-300}
+\end{figure}
+
+O coeficiente $r = 0{,}6376$ indica uma associação positiva e de intensidade moderada a forte: dias mais quentes tendem a apresentar maior número total de usuários. O coeficiente de determinação, $r^2 \approx 0{,}41$, indica que cerca de 41\% da variação de \texttt{total\_user} é explicada linearmente pela temperatura, restando aproximadamente 59\% associado a outros fatores.
+
+No entanto, o coeficiente de correlação possui algumas limitações. Vale notar que a temperatura está fortemente associada à estação do ano e às condições meteorológicas, que também afetam o uso do  sistema. Parte da correlação pode refletir esses fatores em vez de ser um efeito direto da temperatura e, então, não haveria causalidade. Além disso, o coeficiente mede apenas relações lineares entre os dados. Caso a associação entre usuários e temperatura seja curva, com alguma saturação em temperaturas mais altas, o coeficiente de correlação não consegue representar muito bem essa dinâmica, dada sua natureza linear. 
+
+\subsection{Ponto 4 -- Características Mais Associadas à Utilização do Sistema}
+
+Com base nos resultados dos Pontos 1, 2 e 3, as duas características que parecem estar mais fortemente associadas à utilização do sistema são a estação do ano e a condição meteorológica.
+
+A Tabela 9 mostra a maior amplitude entre grupos dentre todas as características analisadas: a média de \texttt{total\_user} varia de 2019,92 (inverno) a 4464,36 (verão), uma diferença de mais de 2400 usuários por dia. Ademais, a proporção de dias de baixa utilização varia de 4,26\% no verão a 92,00\% no inverno. Essa diferença de quase 88 pontos percentuais entre os extremos é extremamente expressiva e, portanto, um fortíssimo indício de que a estação do ano é o fator isolado mais discriminante entre dias de alta e baixa utilização do sistema.
+
+ Já a Tabela 11 mostra outro padrão observável: a média de \texttt{total\_user} cai de 4149,83 (céu limpo) para 1757,57 (chuva fraca), e a proporção de dias de \texttt{low\_usage} sobe de 14,05\% para 100,00\%. Em outras palavras, todos os 14 dias de chuva fraca do grupo são classificados como de baixa utilização. Esse resultado permite inferir que a condição climática interfere quase deterministicamente na taxa de utilização do sistema.
+
+Quanto à temperatura, é possível dizer que apresenta associação relevante com \texttt{total\_user} ($r = 0{,}6376$ nas 300 observações), mas essa correlação é de intensidade moderada e explica apenas cerca de 41\% da variância de \texttt{total\_user} ($r^2 \approx 0{,}41$), contra os efeitos muito mais acentuados observados por estação e por condição meteorológica. Além disso, a temperatura está intimamente correlacionada com a própria estação do ano e com a condição meteorológica (dias quentes tendem a ser dias de verão e de céu limpo), de modo que parte do efeito atribuído à temperatura é, em boa medida, um reflexo desses dois outros fatores, e não um efeito independente.
+
+Assim, estação do ano e condição meteorológica se destacam como as características mais associadas à utilização do sistema dada a proporção de dias classificados como \texttt{low\_usage}, que nos dois casos varia de valores muito baixos (4,26\% no verão; 14,05\% em dias de céu limpo) a valores extremos (92,00\% no inverno; 100,00\% em dias de chuva fraca).
+
 \section{Questão 4}
 
 \end{document}
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+\end{document}
+
