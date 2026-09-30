@@ -1025,7 +1025,7 @@ Na Questão 3, cada estação foi apresentada em boxplots separados, dificultand
 \label{fig:season-comb}
 \end{figure}
 
-Para quantificar a intensidade da associação e a estabilidade da demanda em cada estação, calculou-se o \textbf{coeficiente de variação} ($CV = s/\bar{x}$), a amplitude das médias e a razão de variância explicada ($\eta^2$, obtida via análise de variância unidirecional), cujos resultados estão consolidados na Tabela~\ref{tab:comp-estacao}.
+Para quantificar a dispersão relativa e a estabilidade da demanda em cada estação, calculou-se o \textbf{coeficiente de variação} ($CV = s/\bar{x}$, gerado no código R na variável \texttt{cv\_season}), além da amplitude entre as médias e da proporção de dias de baixa utilização, consolidados na Tabela~\ref{tab:comp-estacao}.
 
 \begin{table}[!htb]
 \centering
@@ -1043,7 +1043,7 @@ Outono    & 89 & 3664,46 & 3717,00 & 983,01  & 26,83\% & 26,97\% \\
 \end{tabular}
 \end{table}
 
-A amplitude entre as médias extremas é $\Delta \bar{x} = 2444{,}44$ usuários/dia, ou seja, o verão tem volume médio 121,0\% maior que o inverno. O CV revela ainda que o verão é a estação mais estável ($CV = 17{,}88\%$), ao passo que o inverno é o mais volátil ($CV = 36{,}81\%$), seguido da primavera ($30{,}17\%$). A estação do ano, isoladamente, explica $\eta^2 = 30{,}75\%$ da variabilidade diária. O boxplot confirma visualmente: a caixa interquartil do verão ($Q_1 \approx 4149$) praticamente não se sobrepõe à do inverno ($Q_3 \approx 2423$).
+A amplitude entre as médias extremas é $\Delta \bar{x} = 2444{,}44$ usuários/dia, com o volume médio no verão superando o do inverno em 121,0\%. O CV revela ainda que o verão é a estação mais estável ($CV = 17{,}88\%$), ao passo que o inverno é o mais disperso relativamente ($CV = 36{,}81\%$), seguido da primavera ($30{,}17\%$). Além disso, a proporção de dias de baixo uso é de 92,00\% no inverno contra apenas 4,26\% no verão, demonstrando o forte contraste sazonal. O boxplot confirma visualmente: a caixa interquartil do verão ($Q_1 \approx 4149$) praticamente não se sobrepõe à do inverno ($Q_3 \approx 2423$).
 
 \clearpage
 \subsubsection{Condição Meteorológica}
@@ -1069,7 +1069,7 @@ Para a condição meteorológica, adotou-se o \textbf{boxplot comparativo direto
 \label{fig:weather-comb}
 \end{figure}
 
-Como medidas estatísticas complementares, calcularam-se o coeficiente de variação e a retração percentual média em relação aos dias de céu limpo (Tabela~\ref{tab:comp-clima}).
+Como medidas estatísticas complementares, calcularam-se o coeficiente de variação ($CV = s/\bar{x}$, variável \texttt{cv\_weather}) e a retração percentual média em relação aos dias de céu limpo (variável \texttt{pct\_change\_weather}, Tabela~\ref{tab:comp-clima}).
 
 \begin{table}[!htb]
 \centering
@@ -1087,7 +1087,7 @@ Chuva forte & 0   & --      & --      & --      & --      & -- \\
 \end{tabular}
 \end{table}
 
-Dias nublados reduzem a média em 16,19\% em relação ao céu limpo. A chuva fraca, porém, representa uma queda de \textbf{57,65\%} ($\Delta \bar{x} = -2392{,}26$ usuários/dia), com dispersão máxima ($CV = 45{,}17\%$). A condição meteorológica explica $\eta^2 = 22{,}98\%$ da variância total. O boxplot reforça esse resultado: o $Q_3$ de dias de chuva fraca é inferior ao $Q_1$ de dias de céu limpo, indicando que praticamente qualquer dia com chuva fica abaixo do nível típico de um dia ensolarado.
+Dias nublados reduzem a média em 16,19\% em relação ao céu limpo. A chuva fraca, porém, representa uma queda severa de \textbf{57,65\%} ($\Delta \bar{x} = -2392{,}26$ usuários/dia), apresentando a maior dispersão relativa ($CV = 45{,}17\%$). Além disso, 100\% dos dias com chuva fraca foram classificados como de baixa utilização (\texttt{low\_usage}). O boxplot reforça esse resultado: o $Q_3$ de dias de chuva fraca é inferior ao $Q_1$ de dias de céu limpo, indicando que praticamente qualquer dia com precipitação fica abaixo do patamar típico observado sob tempo aberto.
 
 \clearpage
 \subsection{Ponto 3 -- Relação entre Temperatura e \texttt{total\_user} por Grupo de Utilização}
@@ -1202,6 +1202,6 @@ Três aspectos se destacam na comparação entre os grupos:
 \clearpage
 \subsection{Ponto 4 -- Conclusão Final}
 
-As 300 observações (05/03 a 29/12/2011) mostram que a demanda diária de bicicletas é determinada principalmente pela estação do ano e pela condição meteorológica. A série temporal revela um padrão sazonal claro: a demanda sobe da primavera ao verão, atinge o pico em julho (até 6043 usuários) e cai progressivamente até dezembro. A estação, isoladamente, explica $\eta^2 = 30{,}75\%$ da variância total, com média de verão 121\% acima da de inverno (4464 vs.\ 2020 usuários/dia). A condição meteorológica tem efeito ainda mais direto: sob chuva fraca, a média cai 57,6\% em relação ao céu limpo (1758 vs.\ 4150 usuários), e 100\% desses dias foram de baixa utilização. A temperatura apresenta correlação global moderada ($r = 0{,}6376$), mas esse valor é inflado pela separação entre os grupos: dentro de cada estrato, a correlação é bem menor ($r = 0{,}44$ no uso normal e $r = 0{,}18$ na baixa utilização), indicando que chuva e frio pesam mais do que a temperatura em si.
+As 300 observações (05/03 a 29/12/2011) mostram que a demanda diária de bicicletas é determinada principalmente pela estação do ano e pela condição meteorológica. A série temporal revela um padrão sazonal claro: a demanda sobe da primavera ao verão, atinge o pico em julho (até 6043 usuários) e cai progressivamente até dezembro. O efeito sazonal é expressivo: a média de verão é 121,0\% superior à de inverno (4464 vs.\ 2020 usuários/dia), com dias de baixo uso caindo de 92,0\% para apenas 4,3\%. A condição meteorológica tem impacto ainda mais severo: sob chuva fraca, a média cai 57,6\% em relação ao céu limpo (1758 vs.\ 4150 usuários), e 100\% desses dias foram de baixa utilização. A temperatura apresenta correlação global moderada ($r = 0{,}6376$), mas esse valor é inflado pela separação entre os estratos: dentro de cada grupo, a correlação é sensivelmente menor ($r = 0{,}44$ no uso normal e $r = 0{,}18$ na baixa utilização), indicando que fatores adversos como chuva e frio pesam mais do que a oscilação térmica em si.
 
 \end{document}

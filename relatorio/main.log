@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  29 SEP 2026 18:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  30 SEP 2026 10:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -967,13 +967,13 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1048.
 
  <./imagens/box_season_300obs.png (PNG copy)> <./imagens/bar_means_season_300ob
 s.png (PNG copy)> <./imagens/bar_prop_lu_season_300obs.png (PNG copy)>]
-<imagens/box_weather_300obs.png, id=376, 505.89pt x 505.89pt>
+<imagens/box_weather_300obs.png, id=375, 505.89pt x 505.89pt>
 File: imagens/box_weather_300obs.png Graphic file (type png)
 <use imagens/box_weather_300obs.png>
 Package pdftex.def Info: imagens/box_weather_300obs.png  used on input line 105
 7.
 (pdftex.def)             Requested size: 125.19078pt x 125.19078pt.
-<imagens/bar_means_weather_300obs.png, id=377, 505.89pt x 505.89pt>
+<imagens/bar_means_weather_300obs.png, id=376, 505.89pt x 505.89pt>
 File: imagens/bar_means_weather_300obs.png Graphic file (type png)
 <use imagens/bar_means_weather_300obs.png>
 Package pdftex.def Info: imagens/bar_means_weather_300obs.png  used on input li
@@ -1007,13 +1007,13 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1154.
 [23
 
 ]
-<imagens/scatter_temp_tu_usage_group_10obs.png, id=395, 505.89pt x 505.89pt>
+<imagens/scatter_temp_tu_usage_group_10obs.png, id=394, 505.89pt x 505.89pt>
 File: imagens/scatter_temp_tu_usage_group_10obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_usage_group_10obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_usage_group_10obs.png  used on
  input line 1159.
 (pdftex.def)             Requested size: 113.80489pt x 113.80489pt.
-<imagens/scatter_temp_tu_usage_group_300obs.png, id=396, 505.89pt x 505.89pt>
+<imagens/scatter_temp_tu_usage_group_300obs.png, id=395, 505.89pt x 505.89pt>
 File: imagens/scatter_temp_tu_usage_group_300obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_usage_group_300obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_usage_group_300obs.png  used o
@@ -1046,22 +1046,22 @@ Here is how much of TeX's memory you used:
  47578 multiletter control sequences out of 15000+600000
  669877 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,19n,79p,1045b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,19n,79p,1106b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
 live/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dis
 t/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2026/texmf-dist/fonts/t
-ype1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/public/m
-athpazo/fplmri.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrb8a.p
-fb><c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2
-026/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2026/texmf-dist/
-fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw
-/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplr
-8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on main.pdf (26 pages, 2230388 bytes).
+ype1/public/mathpazo/fplmr.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/cour
+ier/ucrb8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><
+c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2026
+/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb><c:/texlive/2026/texmf-dist/fon
+ts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/p
+alatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a
+.pfb>
+Output written on main.pdf (26 pages, 2227513 bytes).
 PDF statistics:
- 503 PDF objects out of 1000 (max. 8388607)
- 414 compressed objects within 5 object streams
+ 498 PDF objects out of 1000 (max. 8388607)
+ 411 compressed objects within 5 object streams
  148 named destinations out of 1000 (max. 500000)
  19378 words of extra memory for PDF output out of 20736 (max. 10000000)
 

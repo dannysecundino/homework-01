@@ -798,6 +798,19 @@ barplot(prop_lu_season,
         ylab = "Proportion",
         col = "forestgreen")
 
+# Statistical measures of dispersion and association:
+# Standard deviations by season
+sds_season_f10 <- c(sd_winter_f10, sd_spring_f10, sd_summer_f10, sd_autumn_f10)
+# Coefficient of Variation (CV = s / mean * 100)
+cv_season_f10 <- (sds_season_f10 / means_season_f10) * 100
+
+sds_season <- c(sd_winter, sd_spring, sd_summer, sd_autumn)
+cv_season <- (sds_season / means_season) * 100
+
+# Amplitude between extreme means and percentage change (Summer vs Winter)
+diff_means_season <- max(means_season) - min(means_season)
+pct_change_summer_winter <- ((xn_summer - xn_winter) / xn_winter) * 100
+
 # Weather condition
 # with the first ten observations (to compare with manual computations)
 first_ten$weathersit_f <- factor(first_ten$weathersit,
@@ -832,6 +845,19 @@ barplot(means_weather,
         main = "Mean Total Users by Weather Condition",
         ylab = "Mean number of total users",
         col = "darkgreen")
+
+# Statistical measures of dispersion and association:
+# Standard deviations by weather condition
+sds_weather_f10 <- c(sd_clear_f10, sd_cloudy_f10, sd_lightrain_f10, sd_heavyrain_f10)
+# Coefficient of Variation (CV = s / mean * 100)
+cv_weather_f10 <- (sds_weather_f10 / means_weather_f10) * 100
+
+sds_weather <- c(sd_clear, sd_cloudy, sd_lightrain, sd_heavyrain)
+cv_weather <- (sds_weather / means_weather) * 100
+
+# Difference and percentage change relative to Clear Sky
+diff_means_weather <- means_weather - xn_clear
+pct_change_weather <- ((means_weather - xn_clear) / xn_clear) * 100
 
 # 3. Deepening the relationship between temperature and total_user, distinguishing low_usage days from the rest
 
@@ -882,17 +908,29 @@ cat("in Question 3.2; for season, we have plotted a new one.)\n")
 cat("a) For the first ten observations (to compare with manual computations):\n")
 cat("   i) Season:\n")
 cat("      Means: ", means_season_f10, "\n")
+cat("      Standard Deviations: ", sds_season_f10, "\n")
+cat("      Coefficient of Variation (CV %): ", cv_season_f10, "\n")
 cat("      Proportion of Low Usage Days: ", prop_lu_season_f10, "\n")
 cat("   ii) Weather condition:\n")
 cat("      Means: ", means_weather_f10, "\n")
+cat("      Standard Deviations: ", sds_weather_f10, "\n")
+cat("      Coefficient of Variation (CV %): ", cv_weather_f10, "\n")
 cat("      Proportion of Low Usage Days: ", c(prop_lu_clear_f10, prop_lu_cloudy_f10, prop_lu_lightrain_f10, prop_lu_heavyrain_f10), "\n")
 cat("b) For all group's dataset:\n")
 cat("   i) Season:\n")
 cat("      Means: ", means_season, "\n")
+cat("      Standard Deviations: ", sds_season, "\n")
+cat("      Coefficient of Variation (CV %): ", cv_season, "\n")
 cat("      Proportion of Low Usage Days: ", prop_lu_season, "\n")
+cat("      Amplitude between Extreme Means: ", diff_means_season, "\n")
+cat("      Percentage Increase (Summer vs Winter): ", pct_change_summer_winter, "%\n")
 cat("   ii) Weather condition:\n")
 cat("      Means: ", means_weather, "\n")
+cat("      Standard Deviations: ", sds_weather, "\n")
+cat("      Coefficient of Variation (CV %): ", cv_weather, "\n")
 cat("      Proportion of Low Usage Days: ", c(prop_lu_clear, prop_lu_cloudy, prop_lu_lightrain, prop_lu_heavyrain), "\n")
+cat("      Difference vs Clear Sky: ", diff_means_weather, "\n")
+cat("      Percentage Change vs Clear Sky (%): ", pct_change_weather, "%\n")
 cat("\n")
 cat("3. Deepening the relationship between temperature and total_user by usage group:\n")
 cat("a) For the first ten observations (to compare with manual computations):\n")
