@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  30 SEP 2026 16:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  30 SEP 2026 16:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -585,7 +585,7 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
 \c@lstlisting=\count336
 Package babel Info: Main language set to 'brazil'.
-<imagens/ufc.png, id=148, 794.0064pt x 350.7504pt>
+<imagens/ufc.png, id=152, 794.0064pt x 350.7504pt>
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 106.
@@ -700,24 +700,24 @@ File: imagens/ufc.png Graphic file (type png)
 Package pdftex.def Info: imagens/ufc.png  used on input line 525.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
 [7]
-<imagens/hist_casual_10obs.png, id=249, 688.2457pt x 608.41255pt>
+<imagens/hist_casual_10obs.png, id=253, 688.2457pt x 608.41255pt>
 File: imagens/hist_casual_10obs.png Graphic file (type png)
 <use imagens/hist_casual_10obs.png>
 Package pdftex.def Info: imagens/hist_casual_10obs.png  used on input line 534.
 
 (pdftex.def)             Requested size: 218.51521pt x 193.16418pt.
-<imagens/box_casual_10obs.png, id=250, 688.2457pt x 608.41255pt>
+<imagens/box_casual_10obs.png, id=254, 688.2457pt x 608.41255pt>
 File: imagens/box_casual_10obs.png Graphic file (type png)
 <use imagens/box_casual_10obs.png>
 Package pdftex.def Info: imagens/box_casual_10obs.png  used on input line 541.
 (pdftex.def)             Requested size: 218.51521pt x 193.16418pt.
-<imagens/hist_casual_300obs.png, id=251, 688.2457pt x 608.41255pt>
+<imagens/hist_casual_300obs.png, id=255, 688.2457pt x 608.41255pt>
 File: imagens/hist_casual_300obs.png Graphic file (type png)
 <use imagens/hist_casual_300obs.png>
 Package pdftex.def Info: imagens/hist_casual_300obs.png  used on input line 553
 .
 (pdftex.def)             Requested size: 218.51521pt x 193.16418pt.
-<imagens/box_casual_300obs.png, id=252, 688.2457pt x 608.41255pt>
+<imagens/box_casual_300obs.png, id=256, 688.2457pt x 608.41255pt>
 File: imagens/box_casual_300obs.png Graphic file (type png)
 <use imagens/box_casual_300obs.png>
 Package pdftex.def Info: imagens/box_casual_300obs.png  used on input line 560.
@@ -782,30 +782,30 @@ a-ri-á-veis \T1/pcr/m/n/10 xn_*\T1/ppl/m/n/10 , \T1/pcr/m/n/10 me_*\T1/ppl/m/n/
 10 , \T1/pcr/m/n/10 sd_* \T1/ppl/m/n/10 e \T1/pcr/m/n/10 prop_lu_*
  []
 
-<imagens/box_winter_10obs.png, id=278, 2007.5pt x 2007.5pt>
+<imagens/box_winter_10obs.png, id=282, 2007.5pt x 2007.5pt>
 File: imagens/box_winter_10obs.png Graphic file (type png)
 <use imagens/box_winter_10obs.png>
 Package pdftex.def Info: imagens/box_winter_10obs.png  used on input line 689.
 (pdftex.def)             Requested size: 204.85846pt x 204.8358pt.
-<imagens/box_winter_300obs.png, id=279, 2007.5pt x 2007.5pt>
+<imagens/box_winter_300obs.png, id=283, 2007.5pt x 2007.5pt>
 File: imagens/box_winter_300obs.png Graphic file (type png)
 <use imagens/box_winter_300obs.png>
 Package pdftex.def Info: imagens/box_winter_300obs.png  used on input line 698.
 
 (pdftex.def)             Requested size: 204.85846pt x 204.8358pt.
-<imagens/box_spring_300obs.png, id=280, 2007.5pt x 2007.5pt>
+<imagens/box_spring_300obs.png, id=284, 2007.5pt x 2007.5pt>
 File: imagens/box_spring_300obs.png Graphic file (type png)
 <use imagens/box_spring_300obs.png>
 Package pdftex.def Info: imagens/box_spring_300obs.png  used on input line 705.
 
 (pdftex.def)             Requested size: 204.85846pt x 204.8358pt.
-<imagens/box_summer_300obs.png, id=281, 2007.5pt x 2007.5pt>
+<imagens/box_summer_300obs.png, id=285, 2007.5pt x 2007.5pt>
 File: imagens/box_summer_300obs.png Graphic file (type png)
 <use imagens/box_summer_300obs.png>
 Package pdftex.def Info: imagens/box_summer_300obs.png  used on input line 712.
 
 (pdftex.def)             Requested size: 204.85846pt x 204.8358pt.
-<imagens/box_autumn_300obs.png, id=282, 2007.5pt x 2007.5pt>
+<imagens/box_autumn_300obs.png, id=286, 2007.5pt x 2007.5pt>
 File: imagens/box_autumn_300obs.png Graphic file (type png)
 <use imagens/box_autumn_300obs.png>
 Package pdftex.def Info: imagens/box_autumn_300obs.png  used on input line 719.
@@ -823,46 +823,46 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 729.
  [13 <relatorio/imagens/box_winter_300obs.png (PNG copy)> <relatorio/imagens/bo
 x_spring_300obs.png (PNG copy)> <relatorio/imagens/box_summer_300obs.png (PNG c
 opy)> <relatorio/imagens/box_autumn_300obs.png (PNG copy)>]
-<imagens/box_clear_10obs.png, id=296, 2007.5pt x 2007.5pt>
+<imagens/box_clear_10obs.png, id=301, 2007.5pt x 2007.5pt>
 File: imagens/box_clear_10obs.png Graphic file (type png)
 <use imagens/box_clear_10obs.png>
 Package pdftex.def Info: imagens/box_clear_10obs.png  used on input line 784.
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/box_cloudy_10obs.png, id=297, 2007.5pt x 2007.5pt>
+<imagens/box_cloudy_10obs.png, id=302, 2007.5pt x 2007.5pt>
 File: imagens/box_cloudy_10obs.png Graphic file (type png)
 <use imagens/box_cloudy_10obs.png>
 Package pdftex.def Info: imagens/box_cloudy_10obs.png  used on input line 791.
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/box_lightrain_10obs.png, id=298, 2007.5pt x 2007.5pt>
+<imagens/box_lightrain_10obs.png, id=303, 2007.5pt x 2007.5pt>
 File: imagens/box_lightrain_10obs.png Graphic file (type png)
 <use imagens/box_lightrain_10obs.png>
 Package pdftex.def Info: imagens/box_lightrain_10obs.png  used on input line 79
 8.
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/box_clear_300obs.png, id=299, 2007.5pt x 2007.5pt>
+<imagens/box_clear_300obs.png, id=304, 2007.5pt x 2007.5pt>
 File: imagens/box_clear_300obs.png Graphic file (type png)
 <use imagens/box_clear_300obs.png>
 Package pdftex.def Info: imagens/box_clear_300obs.png  used on input line 832.
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/box_cloudy_300obs.png, id=300, 2007.5pt x 2007.5pt>
+<imagens/box_cloudy_300obs.png, id=305, 2007.5pt x 2007.5pt>
 File: imagens/box_cloudy_300obs.png Graphic file (type png)
 <use imagens/box_cloudy_300obs.png>
 Package pdftex.def Info: imagens/box_cloudy_300obs.png  used on input line 839.
 
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/box_lightrain_300obs.png, id=301, 2007.5pt x 2007.5pt>
+<imagens/box_lightrain_300obs.png, id=306, 2007.5pt x 2007.5pt>
 File: imagens/box_lightrain_300obs.png Graphic file (type png)
 <use imagens/box_lightrain_300obs.png>
 Package pdftex.def Info: imagens/box_lightrain_300obs.png  used on input line 8
 46.
 (pdftex.def)             Requested size: 141.12456pt x 141.12137pt.
-<imagens/bar_prop_lu_weather_10obs.png, id=302, 2007.5pt x 2007.5pt>
+<imagens/bar_prop_lu_weather_10obs.png, id=307, 2007.5pt x 2007.5pt>
 File: imagens/bar_prop_lu_weather_10obs.png Graphic file (type png)
 <use imagens/bar_prop_lu_weather_10obs.png>
 Package pdftex.def Info: imagens/bar_prop_lu_weather_10obs.png  used on input l
 ine 858.
 (pdftex.def)             Requested size: 218.51521pt x 218.49765pt.
-<imagens/bar_prop_lu_weather_300obs.png, id=303, 2007.5pt x 2007.5pt>
+<imagens/bar_prop_lu_weather_300obs.png, id=308, 2007.5pt x 2007.5pt>
 File: imagens/bar_prop_lu_weather_300obs.png Graphic file (type png)
 <use imagens/bar_prop_lu_weather_300obs.png>
 Package pdftex.def Info: imagens/bar_prop_lu_weather_300obs.png  used on input 
@@ -890,13 +890,13 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 875.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
  [16 <relatorio/imagens/bar_prop_lu_weather_10obs.png (PNG copy)> <relatorio/im
 agens/bar_prop_lu_weather_300obs.png (PNG copy)>]
-<imagens/scatter_temp_tu_10obs.png, id=327, 2007.5pt x 2007.5pt>
+<imagens/scatter_temp_tu_10obs.png, id=331, 2007.5pt x 2007.5pt>
 File: imagens/scatter_temp_tu_10obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_10obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_10obs.png  used on input line 
 921.
 (pdftex.def)             Requested size: 250.38564pt x 250.38551pt.
-<imagens/scatter_temp_tu_300obs.png, id=328, 2007.5pt x 2007.5pt>
+<imagens/scatter_temp_tu_300obs.png, id=332, 2007.5pt x 2007.5pt>
 File: imagens/scatter_temp_tu_300obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_300obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_300obs.png  used on input line
@@ -920,13 +920,13 @@ File: imagens/ufc.png Graphic file (type png)
 Package pdftex.def Info: imagens/ufc.png  used on input line 956.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
  [19]
-<imagens/ts_total_user_10obs.png, id=348, 505.89pt x 505.89pt>
+<imagens/ts_total_user_10obs.png, id=352, 505.89pt x 505.89pt>
 File: imagens/ts_total_user_10obs.png Graphic file (type png)
 <use imagens/ts_total_user_10obs.png>
 Package pdftex.def Info: imagens/ts_total_user_10obs.png  used on input line 96
 9.
 (pdftex.def)             Requested size: 96.73763pt x 96.73763pt.
-<imagens/ts_total_user_300obs.png, id=349, 505.89pt x 505.89pt>
+<imagens/ts_total_user_300obs.png, id=353, 505.89pt x 505.89pt>
 File: imagens/ts_total_user_300obs.png Graphic file (type png)
 <use imagens/ts_total_user_300obs.png>
 Package pdftex.def Info: imagens/ts_total_user_300obs.png  used on input line 9
@@ -940,19 +940,19 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 993.
 
  <relatorio/imagens/ts_total_user_10obs.png (PNG copy)> <relatorio/imagens/ts_t
 otal_user_300obs.png (PNG copy)>]
-<imagens/box_season_300obs.png, id=363, 505.89pt x 505.89pt>
+<imagens/box_season_300obs.png, id=367, 505.89pt x 505.89pt>
 File: imagens/box_season_300obs.png Graphic file (type png)
 <use imagens/box_season_300obs.png>
 Package pdftex.def Info: imagens/box_season_300obs.png  used on input line 1006
 .
 (pdftex.def)             Requested size: 105.27512pt x 105.27512pt.
-<imagens/bar_means_season_300obs.png, id=364, 505.89pt x 505.89pt>
+<imagens/bar_means_season_300obs.png, id=368, 505.89pt x 505.89pt>
 File: imagens/bar_means_season_300obs.png Graphic file (type png)
 <use imagens/bar_means_season_300obs.png>
 Package pdftex.def Info: imagens/bar_means_season_300obs.png  used on input lin
 e 1013.
 (pdftex.def)             Requested size: 105.27512pt x 105.27512pt.
-<imagens/bar_prop_lu_season_300obs.png, id=365, 505.89pt x 505.89pt>
+<imagens/bar_prop_lu_season_300obs.png, id=369, 505.89pt x 505.89pt>
 File: imagens/bar_prop_lu_season_300obs.png Graphic file (type png)
 <use imagens/bar_prop_lu_season_300obs.png>
 Package pdftex.def Info: imagens/bar_prop_lu_season_300obs.png  used on input l
@@ -967,13 +967,13 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1048.
  <relatorio/imagens/box_season_300obs.png (PNG copy)> <relatorio/imagens/bar_me
 ans_season_300obs.png (PNG copy)> <relatorio/imagens/bar_prop_lu_season_300obs.
 png (PNG copy)>]
-<imagens/box_weather_300obs.png, id=375, 505.89pt x 505.89pt>
+<imagens/box_weather_300obs.png, id=379, 505.89pt x 505.89pt>
 File: imagens/box_weather_300obs.png Graphic file (type png)
 <use imagens/box_weather_300obs.png>
 Package pdftex.def Info: imagens/box_weather_300obs.png  used on input line 105
 7.
 (pdftex.def)             Requested size: 125.19078pt x 125.19078pt.
-<imagens/bar_means_weather_300obs.png, id=376, 505.89pt x 505.89pt>
+<imagens/bar_means_weather_300obs.png, id=380, 505.89pt x 505.89pt>
 File: imagens/bar_means_weather_300obs.png Graphic file (type png)
 <use imagens/bar_means_weather_300obs.png>
 Package pdftex.def Info: imagens/bar_means_weather_300obs.png  used on input li
@@ -1007,13 +1007,13 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1154.
 [23
 
 ]
-<imagens/scatter_temp_tu_usage_group_10obs.png, id=394, 505.89pt x 505.89pt>
+<imagens/scatter_temp_tu_usage_group_10obs.png, id=398, 505.89pt x 505.89pt>
 File: imagens/scatter_temp_tu_usage_group_10obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_usage_group_10obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_usage_group_10obs.png  used on
  input line 1159.
 (pdftex.def)             Requested size: 113.80489pt x 113.80489pt.
-<imagens/scatter_temp_tu_usage_group_300obs.png, id=395, 505.89pt x 505.89pt>
+<imagens/scatter_temp_tu_usage_group_300obs.png, id=399, 505.89pt x 505.89pt>
 File: imagens/scatter_temp_tu_usage_group_300obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_usage_group_300obs.png>
 Package pdftex.def Info: imagens/scatter_temp_tu_usage_group_300obs.png  used o
@@ -1032,19 +1032,37 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1207.
  [25
 
 ]
-(relatorio/main.aux)
+Overfull \hbox (1.96135pt too wide) in paragraph at lines 1214--1215
+[]\T1/ppl/b/n/10 FANAEE-T, H.; GAMA, J. \T1/ppl/m/n/10 Event la-be-ling com-bi-
+ning en-sem-ble de-tec-tors and back-ground kno-wledge.
+ []
+
+
+Overfull \hbox (10.25008pt too wide) in paragraph at lines 1216--1217
+[]\T1/ppl/b/n/10 UCI MA-CHINE LE-AR-NING RE-PO-SI-TORY\T1/ppl/m/n/10 . \T1/ppl/
+m/it/10 Bike Sha-ring Da-ta-set\T1/ppl/m/n/10 . Ca-pi-tal Bi-keshare Sys-tem (W
+ashing-
+ []
+
+File: imagens/ufc.png Graphic file (type png)
+<use imagens/ufc.png>
+Package pdftex.def Info: imagens/ufc.png  used on input line 1225.
+(pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
+[26
+
+] (relatorio/main.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 9683ED6600B61FEC46858BC19FD973E9;9635.
+(rerunfilecheck)             Checksum: F81045611CC06509E4A7D429FB44E740;9739.
  ) 
 Here is how much of TeX's memory you used:
- 18708 strings out of 467168
- 300368 string characters out of 5413705
+ 18720 strings out of 467168
+ 300517 string characters out of 5413705
  1143931 words of memory out of 5000000
- 47578 multiletter control sequences out of 15000+600000
+ 47582 multiletter control sequences out of 15000+600000
  669877 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  74i,19n,79p,1116b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1059,10 +1077,10 @@ c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2026
 ts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/p
 alatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on relatorio/main.pdf (26 pages, 2227513 bytes).
+Output written on relatorio/main.pdf (27 pages, 2235113 bytes).
 PDF statistics:
- 498 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 148 named destinations out of 1000 (max. 500000)
- 19378 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 516 PDF objects out of 1000 (max. 8388607)
+ 428 compressed objects within 5 object streams
+ 156 named destinations out of 1000 (max. 500000)
+ 19386 words of extra memory for PDF output out of 20736 (max. 10000000)
 
