@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  30 SEP 2026 10:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026) (preloaded format=pdflatex 2026.6.26)  30 SEP 2026 16:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**relatorio/main.tex
+(./relatorio/main.tex
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
 (c:/texlive/2026/texmf-dist/tex/latex/base/article.cls
@@ -475,7 +475,7 @@ File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 File: l3backend-pdftex.def 2026-02-18 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count329
 )
-(./main.aux
+(relatorio/main.aux
 Package babel Info: 'brazil' activates 'portuges' shorthands.
 (babel)             Reported on input line 8.
 )
@@ -558,7 +558,7 @@ e
 ))
 Package hyperref Info: Link coloring ON on input line 99.
 
-(./main.out) (./main.out)
+(relatorio/main.out) (relatorio/main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
@@ -593,7 +593,7 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 106.
  [1
 
 {c:/texlive/2026/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2026/
-texmf-dist/fonts/enc/dvips/base/8r.enc} <./imagens/ufc.png>]
+texmf-dist/fonts/enc/dvips/base/8r.enc} <relatorio/imagens/ufc.png>]
 LaTeX Font Info:    Trying to load font information for T1+pcr on input line 12
 7.
 
@@ -731,8 +731,8 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 571.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
-[8 <./imagens/hist_casual_10obs.png (PNG copy)> <./imagens/box_casual_10obs.png
- (PNG copy)>]
+[8 <relatorio/imagens/hist_casual_10obs.png (PNG copy)> <relatorio/imagens/box_
+casual_10obs.png (PNG copy)>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 586.
@@ -749,8 +749,8 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 596.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
-[9 <./imagens/hist_casual_300obs.png (PNG copy)> <./imagens/box_casual_300obs.p
-ng (PNG copy)>]
+[9 <relatorio/imagens/hist_casual_300obs.png (PNG copy)> <relatorio/imagens/box
+_casual_300obs.png (PNG copy)>]
 Overfull \hbox (28.33395pt too wide) in paragraph at lines 600--601
 []\T1/ppl/m/n/10 Para as 10 pri-mei-ras ob-ser-va-ções, o va-lor de re-fe-rên-c
 ia foi $\OML/zplm/m/it/10 Q[] \OT1/zplm/m/n/10 = \OT1/ppl/m/n/10 1876[]75$ \T1/
@@ -815,14 +815,14 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 728.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
-[12 <./imagens/box_winter_10obs.png (PNG copy)>]
+[12 <relatorio/imagens/box_winter_10obs.png (PNG copy)>]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 729.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
- [13 <./imagens/box_winter_300obs.png (PNG copy)> <./imagens/box_spring_300obs.
-png (PNG copy)> <./imagens/box_summer_300obs.png (PNG copy)> <./imagens/box_aut
-umn_300obs.png (PNG copy)>]
+ [13 <relatorio/imagens/box_winter_300obs.png (PNG copy)> <relatorio/imagens/bo
+x_spring_300obs.png (PNG copy)> <relatorio/imagens/box_summer_300obs.png (PNG c
+opy)> <relatorio/imagens/box_autumn_300obs.png (PNG copy)>]
 <imagens/box_clear_10obs.png, id=296, 2007.5pt x 2007.5pt>
 File: imagens/box_clear_10obs.png Graphic file (type png)
 <use imagens/box_clear_10obs.png>
@@ -872,24 +872,24 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 874.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
-
-[14
+ [14
 
 ]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 875.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
- [15 <./imagens/box_clear_10obs.png (PNG copy)> <./imagens/box_cloudy_10obs.png
- (PNG copy)> <./imagens/box_lightrain_10obs.png (PNG copy)> <./imagens/box_clea
-r_300obs.png (PNG copy)> <./imagens/box_cloudy_300obs.png (PNG copy)> <./imagen
-s/box_lightrain_300obs.png (PNG copy)>]
+ [15 <relatorio/imagens/box_clear_10obs.png (PNG copy)> <relatorio/imagens/box_
+cloudy_10obs.png (PNG copy)> <relatorio/imagens/box_lightrain_10obs.png (PNG co
+py)> <relatorio/imagens/box_clear_300obs.png (PNG copy)> <relatorio/imagens/box
+_cloudy_300obs.png (PNG copy)> <relatorio/imagens/box_lightrain_300obs.png (PNG
+ copy)>]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 875.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
- [16 <./imagens/bar_prop_lu_weather_10obs.png (PNG copy)> <./imagens/bar_prop_l
-u_weather_300obs.png (PNG copy)>]
+ [16 <relatorio/imagens/bar_prop_lu_weather_10obs.png (PNG copy)> <relatorio/im
+agens/bar_prop_lu_weather_300obs.png (PNG copy)>]
 <imagens/scatter_temp_tu_10obs.png, id=327, 2007.5pt x 2007.5pt>
 File: imagens/scatter_temp_tu_10obs.png Graphic file (type png)
 <use imagens/scatter_temp_tu_10obs.png>
@@ -906,16 +906,15 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 943.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
-
-[17
+ [17
 
 ]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 948.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
- [18 <./imagens/scatter_temp_tu_10obs.png (PNG copy)> <./imagens/scatter_temp_t
-u_300obs.png (PNG copy)>]
+ [18 <relatorio/imagens/scatter_temp_tu_10obs.png (PNG copy)> <relatorio/imagen
+s/scatter_temp_tu_300obs.png (PNG copy)>]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 956.
@@ -939,8 +938,8 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 993.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
  [20
 
- <./imagens/ts_total_user_10obs.png (PNG copy)> <./imagens/ts_total_user_300obs
-.png (PNG copy)>]
+ <relatorio/imagens/ts_total_user_10obs.png (PNG copy)> <relatorio/imagens/ts_t
+otal_user_300obs.png (PNG copy)>]
 <imagens/box_season_300obs.png, id=363, 505.89pt x 505.89pt>
 File: imagens/box_season_300obs.png Graphic file (type png)
 <use imagens/box_season_300obs.png>
@@ -965,8 +964,9 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1048.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
  [21
 
- <./imagens/box_season_300obs.png (PNG copy)> <./imagens/bar_means_season_300ob
-s.png (PNG copy)> <./imagens/bar_prop_lu_season_300obs.png (PNG copy)>]
+ <relatorio/imagens/box_season_300obs.png (PNG copy)> <relatorio/imagens/bar_me
+ans_season_300obs.png (PNG copy)> <relatorio/imagens/bar_prop_lu_season_300obs.
+png (PNG copy)>]
 <imagens/box_weather_300obs.png, id=375, 505.89pt x 505.89pt>
 File: imagens/box_weather_300obs.png Graphic file (type png)
 <use imagens/box_weather_300obs.png>
@@ -990,8 +990,8 @@ Package pdftex.def Info: imagens/ufc.png  used on input line 1092.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
 [22
 
- <./imagens/box_weather_300obs.png (PNG copy)> <./imagens/bar_means_weather_300
-obs.png (PNG copy)>]
+ <relatorio/imagens/box_weather_300obs.png (PNG copy)> <relatorio/imagens/bar_m
+eans_weather_300obs.png (PNG copy)>]
 LaTeX Font Info:    Font shape `T1/pcr/m/it' in size <10> not available
 (Font)              Font shape `T1/pcr/m/sl' tried instead on input line 1138.
 
@@ -1023,15 +1023,16 @@ File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 1202.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
- [24 <./imagens/scatter_temp_tu_usage_group_10obs.png (PNG copy)> <./imagens/sc
-atter_temp_tu_usage_group_300obs.png (PNG copy)>]
+ [24 <relatorio/imagens/scatter_temp_tu_usage_group_10obs.png (PNG copy)> <rela
+torio/imagens/scatter_temp_tu_usage_group_300obs.png (PNG copy)>]
 File: imagens/ufc.png Graphic file (type png)
 <use imagens/ufc.png>
 Package pdftex.def Info: imagens/ufc.png  used on input line 1207.
 (pdftex.def)             Requested size: 64.40623pt x 28.45274pt.
  [25
 
-] (./main.aux)
+]
+(relatorio/main.aux)
  ***********
 LaTeX2e <2026-06-01>
 L3 programming layer <2026-06-18>
@@ -1040,13 +1041,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 9683ED6600B61FEC46858BC19FD973E9;9635.
  ) 
 Here is how much of TeX's memory you used:
- 18707 strings out of 467168
- 300246 string characters out of 5413705
+ 18708 strings out of 467168
+ 300368 string characters out of 5413705
  1143931 words of memory out of 5000000
  47578 multiletter control sequences out of 15000+600000
  669877 words of font info for 128 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,19n,79p,1106b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,19n,79p,1116b,1930s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
 live/2026/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2026
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2026/texmf-dis
@@ -1058,7 +1059,7 @@ c:/texlive/2026/texmf-dist/fonts/type1/urw/courier/ucrro8a.pfb><c:/texlive/2026
 ts/type1/urw/palatino/uplbi8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/p
 alatino/uplr8a.pfb><c:/texlive/2026/texmf-dist/fonts/type1/urw/palatino/uplri8a
 .pfb>
-Output written on main.pdf (26 pages, 2227513 bytes).
+Output written on relatorio/main.pdf (26 pages, 2227513 bytes).
 PDF statistics:
  498 PDF objects out of 1000 (max. 8388607)
  411 compressed objects within 5 object streams
